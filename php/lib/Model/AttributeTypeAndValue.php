@@ -1,6 +1,6 @@
 <?php
 /**
- * FlushInactiveOAuth2TokensRequest
+ * AttributeTypeAndValue
  *
  * PHP version 5
  *
@@ -33,14 +33,15 @@ use \ArrayAccess;
 use \Ory\Hydra\Client\ObjectSerializer;
 
 /**
- * FlushInactiveOAuth2TokensRequest Class Doc Comment
+ * AttributeTypeAndValue Class Doc Comment
  *
  * @category Class
+ * @description AttributeTypeAndValue AttributeTypeAndValue AttributeTypeAndValue AttributeTypeAndValue mirrors the ASN.1 structure of the same name in RFC 5280, Section 4.1.2.4.
  * @package  Ory\Hydra\Client
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
-class FlushInactiveOAuth2TokensRequest implements ModelInterface, ArrayAccess
+class AttributeTypeAndValue implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -49,7 +50,7 @@ class FlushInactiveOAuth2TokensRequest implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $openAPIModelName = 'flushInactiveOAuth2TokensRequest';
+    protected static $openAPIModelName = 'AttributeTypeAndValue';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -57,7 +58,8 @@ class FlushInactiveOAuth2TokensRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
-        'notAfter' => '\DateTime'
+        'type' => 'int[]',
+        'value' => 'object'
     ];
 
     /**
@@ -66,7 +68,8 @@ class FlushInactiveOAuth2TokensRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPIFormats = [
-        'notAfter' => 'date-time'
+        'type' => 'int64',
+        'value' => null
     ];
 
     /**
@@ -96,7 +99,8 @@ class FlushInactiveOAuth2TokensRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'notAfter' => 'notAfter'
+        'type' => 'Type',
+        'value' => 'Value'
     ];
 
     /**
@@ -105,7 +109,8 @@ class FlushInactiveOAuth2TokensRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'notAfter' => 'setNotAfter'
+        'type' => 'setType',
+        'value' => 'setValue'
     ];
 
     /**
@@ -114,7 +119,8 @@ class FlushInactiveOAuth2TokensRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'notAfter' => 'getNotAfter'
+        'type' => 'getType',
+        'value' => 'getValue'
     ];
 
     /**
@@ -177,7 +183,8 @@ class FlushInactiveOAuth2TokensRequest implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['notAfter'] = isset($data['notAfter']) ? $data['notAfter'] : null;
+        $this->container['type'] = isset($data['type']) ? $data['type'] : null;
+        $this->container['value'] = isset($data['value']) ? $data['value'] : null;
     }
 
     /**
@@ -205,25 +212,49 @@ class FlushInactiveOAuth2TokensRequest implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets notAfter
+     * Gets type
      *
-     * @return \DateTime|null
+     * @return int[]|null
      */
-    public function getNotAfter()
+    public function getType()
     {
-        return $this->container['notAfter'];
+        return $this->container['type'];
     }
 
     /**
-     * Sets notAfter
+     * Sets type
      *
-     * @param \DateTime|null $notAfter NotAfter sets after which point tokens should not be flushed. This is useful when you want to keep a history of recently issued tokens for auditing.
+     * @param int[]|null $type type
      *
      * @return $this
      */
-    public function setNotAfter($notAfter)
+    public function setType($type)
     {
-        $this->container['notAfter'] = $notAfter;
+        $this->container['type'] = $type;
+
+        return $this;
+    }
+
+    /**
+     * Gets value
+     *
+     * @return object|null
+     */
+    public function getValue()
+    {
+        return $this->container['value'];
+    }
+
+    /**
+     * Sets value
+     *
+     * @param object|null $value value
+     *
+     * @return $this
+     */
+    public function setValue($value)
+    {
+        $this->container['value'] = $value;
 
         return $this;
     }

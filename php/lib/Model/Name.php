@@ -1,6 +1,6 @@
 <?php
 /**
- * FlushInactiveOAuth2TokensRequest
+ * Name
  *
  * PHP version 5
  *
@@ -33,14 +33,15 @@ use \ArrayAccess;
 use \Ory\Hydra\Client\ObjectSerializer;
 
 /**
- * FlushInactiveOAuth2TokensRequest Class Doc Comment
+ * Name Class Doc Comment
  *
  * @category Class
+ * @description Name Name Name Name represents an X.509 distinguished name. This only includes the common elements of a DN. When parsing, all elements are stored in Names and non-standard elements can be extracted from there. When marshaling, elements in ExtraNames are appended and override other values with the same OID.
  * @package  Ory\Hydra\Client
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
-class FlushInactiveOAuth2TokensRequest implements ModelInterface, ArrayAccess
+class Name implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -49,7 +50,7 @@ class FlushInactiveOAuth2TokensRequest implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $openAPIModelName = 'flushInactiveOAuth2TokensRequest';
+    protected static $openAPIModelName = 'Name';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -57,7 +58,12 @@ class FlushInactiveOAuth2TokensRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
-        'notAfter' => '\DateTime'
+        'country' => 'string[]',
+        'extraNames' => '\Ory\Hydra\Client\Model\AttributeTypeAndValue[]',
+        'locality' => 'string[]',
+        'names' => '\Ory\Hydra\Client\Model\AttributeTypeAndValue[]',
+        'serialNumber' => 'string',
+        'streetAddress' => 'string[]'
     ];
 
     /**
@@ -66,7 +72,12 @@ class FlushInactiveOAuth2TokensRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPIFormats = [
-        'notAfter' => 'date-time'
+        'country' => null,
+        'extraNames' => null,
+        'locality' => null,
+        'names' => null,
+        'serialNumber' => null,
+        'streetAddress' => null
     ];
 
     /**
@@ -96,7 +107,12 @@ class FlushInactiveOAuth2TokensRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'notAfter' => 'notAfter'
+        'country' => 'Country',
+        'extraNames' => 'ExtraNames',
+        'locality' => 'Locality',
+        'names' => 'Names',
+        'serialNumber' => 'SerialNumber',
+        'streetAddress' => 'StreetAddress'
     ];
 
     /**
@@ -105,7 +121,12 @@ class FlushInactiveOAuth2TokensRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'notAfter' => 'setNotAfter'
+        'country' => 'setCountry',
+        'extraNames' => 'setExtraNames',
+        'locality' => 'setLocality',
+        'names' => 'setNames',
+        'serialNumber' => 'setSerialNumber',
+        'streetAddress' => 'setStreetAddress'
     ];
 
     /**
@@ -114,7 +135,12 @@ class FlushInactiveOAuth2TokensRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'notAfter' => 'getNotAfter'
+        'country' => 'getCountry',
+        'extraNames' => 'getExtraNames',
+        'locality' => 'getLocality',
+        'names' => 'getNames',
+        'serialNumber' => 'getSerialNumber',
+        'streetAddress' => 'getStreetAddress'
     ];
 
     /**
@@ -177,7 +203,12 @@ class FlushInactiveOAuth2TokensRequest implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['notAfter'] = isset($data['notAfter']) ? $data['notAfter'] : null;
+        $this->container['country'] = isset($data['country']) ? $data['country'] : null;
+        $this->container['extraNames'] = isset($data['extraNames']) ? $data['extraNames'] : null;
+        $this->container['locality'] = isset($data['locality']) ? $data['locality'] : null;
+        $this->container['names'] = isset($data['names']) ? $data['names'] : null;
+        $this->container['serialNumber'] = isset($data['serialNumber']) ? $data['serialNumber'] : null;
+        $this->container['streetAddress'] = isset($data['streetAddress']) ? $data['streetAddress'] : null;
     }
 
     /**
@@ -205,25 +236,145 @@ class FlushInactiveOAuth2TokensRequest implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets notAfter
+     * Gets country
      *
-     * @return \DateTime|null
+     * @return string[]|null
      */
-    public function getNotAfter()
+    public function getCountry()
     {
-        return $this->container['notAfter'];
+        return $this->container['country'];
     }
 
     /**
-     * Sets notAfter
+     * Sets country
      *
-     * @param \DateTime|null $notAfter NotAfter sets after which point tokens should not be flushed. This is useful when you want to keep a history of recently issued tokens for auditing.
+     * @param string[]|null $country country
      *
      * @return $this
      */
-    public function setNotAfter($notAfter)
+    public function setCountry($country)
     {
-        $this->container['notAfter'] = $notAfter;
+        $this->container['country'] = $country;
+
+        return $this;
+    }
+
+    /**
+     * Gets extraNames
+     *
+     * @return \Ory\Hydra\Client\Model\AttributeTypeAndValue[]|null
+     */
+    public function getExtraNames()
+    {
+        return $this->container['extraNames'];
+    }
+
+    /**
+     * Sets extraNames
+     *
+     * @param \Ory\Hydra\Client\Model\AttributeTypeAndValue[]|null $extraNames extra names
+     *
+     * @return $this
+     */
+    public function setExtraNames($extraNames)
+    {
+        $this->container['extraNames'] = $extraNames;
+
+        return $this;
+    }
+
+    /**
+     * Gets locality
+     *
+     * @return string[]|null
+     */
+    public function getLocality()
+    {
+        return $this->container['locality'];
+    }
+
+    /**
+     * Sets locality
+     *
+     * @param string[]|null $locality locality
+     *
+     * @return $this
+     */
+    public function setLocality($locality)
+    {
+        $this->container['locality'] = $locality;
+
+        return $this;
+    }
+
+    /**
+     * Gets names
+     *
+     * @return \Ory\Hydra\Client\Model\AttributeTypeAndValue[]|null
+     */
+    public function getNames()
+    {
+        return $this->container['names'];
+    }
+
+    /**
+     * Sets names
+     *
+     * @param \Ory\Hydra\Client\Model\AttributeTypeAndValue[]|null $names names
+     *
+     * @return $this
+     */
+    public function setNames($names)
+    {
+        $this->container['names'] = $names;
+
+        return $this;
+    }
+
+    /**
+     * Gets serialNumber
+     *
+     * @return string|null
+     */
+    public function getSerialNumber()
+    {
+        return $this->container['serialNumber'];
+    }
+
+    /**
+     * Sets serialNumber
+     *
+     * @param string|null $serialNumber serial number
+     *
+     * @return $this
+     */
+    public function setSerialNumber($serialNumber)
+    {
+        $this->container['serialNumber'] = $serialNumber;
+
+        return $this;
+    }
+
+    /**
+     * Gets streetAddress
+     *
+     * @return string[]|null
+     */
+    public function getStreetAddress()
+    {
+        return $this->container['streetAddress'];
+    }
+
+    /**
+     * Sets streetAddress
+     *
+     * @param string[]|null $streetAddress street address
+     *
+     * @return $this
+     */
+    public function setStreetAddress($streetAddress)
+    {
+        $this->container['streetAddress'] = $streetAddress;
 
         return $this;
     }

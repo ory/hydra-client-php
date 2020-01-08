@@ -1,6 +1,6 @@
 <?php
 /**
- * FlushInactiveOAuth2TokensRequest
+ * IPNet
  *
  * PHP version 5
  *
@@ -33,14 +33,14 @@ use \ArrayAccess;
 use \Ory\Hydra\Client\ObjectSerializer;
 
 /**
- * FlushInactiveOAuth2TokensRequest Class Doc Comment
+ * IPNet Class Doc Comment
  *
  * @category Class
  * @package  Ory\Hydra\Client
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
-class FlushInactiveOAuth2TokensRequest implements ModelInterface, ArrayAccess
+class IPNet implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -49,7 +49,7 @@ class FlushInactiveOAuth2TokensRequest implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $openAPIModelName = 'flushInactiveOAuth2TokensRequest';
+    protected static $openAPIModelName = 'IPNet';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -57,7 +57,8 @@ class FlushInactiveOAuth2TokensRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
-        'notAfter' => '\DateTime'
+        'iP' => 'int[]',
+        'mask' => 'int[]'
     ];
 
     /**
@@ -66,7 +67,8 @@ class FlushInactiveOAuth2TokensRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPIFormats = [
-        'notAfter' => 'date-time'
+        'iP' => 'uint8',
+        'mask' => 'uint8'
     ];
 
     /**
@@ -96,7 +98,8 @@ class FlushInactiveOAuth2TokensRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'notAfter' => 'notAfter'
+        'iP' => 'IP',
+        'mask' => 'Mask'
     ];
 
     /**
@@ -105,7 +108,8 @@ class FlushInactiveOAuth2TokensRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'notAfter' => 'setNotAfter'
+        'iP' => 'setIP',
+        'mask' => 'setMask'
     ];
 
     /**
@@ -114,7 +118,8 @@ class FlushInactiveOAuth2TokensRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'notAfter' => 'getNotAfter'
+        'iP' => 'getIP',
+        'mask' => 'getMask'
     ];
 
     /**
@@ -177,7 +182,8 @@ class FlushInactiveOAuth2TokensRequest implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['notAfter'] = isset($data['notAfter']) ? $data['notAfter'] : null;
+        $this->container['iP'] = isset($data['iP']) ? $data['iP'] : null;
+        $this->container['mask'] = isset($data['mask']) ? $data['mask'] : null;
     }
 
     /**
@@ -205,25 +211,49 @@ class FlushInactiveOAuth2TokensRequest implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets notAfter
+     * Gets iP
      *
-     * @return \DateTime|null
+     * @return int[]|null
      */
-    public function getNotAfter()
+    public function getIP()
     {
-        return $this->container['notAfter'];
+        return $this->container['iP'];
     }
 
     /**
-     * Sets notAfter
+     * Sets iP
      *
-     * @param \DateTime|null $notAfter NotAfter sets after which point tokens should not be flushed. This is useful when you want to keep a history of recently issued tokens for auditing.
+     * @param int[]|null $iP Note that in this documentation, referring to an IP address as an IPv4 address or an IPv6 address is a semantic property of the address, not just the length of the byte slice: a 16-byte slice can still be an IPv4 address.
      *
      * @return $this
      */
-    public function setNotAfter($notAfter)
+    public function setIP($iP)
     {
-        $this->container['notAfter'] = $notAfter;
+        $this->container['iP'] = $iP;
+
+        return $this;
+    }
+
+    /**
+     * Gets mask
+     *
+     * @return int[]|null
+     */
+    public function getMask()
+    {
+        return $this->container['mask'];
+    }
+
+    /**
+     * Sets mask
+     *
+     * @param int[]|null $mask mask
+     *
+     * @return $this
+     */
+    public function setMask($mask)
+    {
+        $this->container['mask'] = $mask;
 
         return $this;
     }

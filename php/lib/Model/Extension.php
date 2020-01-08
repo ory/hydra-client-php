@@ -1,6 +1,6 @@
 <?php
 /**
- * FlushInactiveOAuth2TokensRequest
+ * Extension
  *
  * PHP version 5
  *
@@ -33,14 +33,15 @@ use \ArrayAccess;
 use \Ory\Hydra\Client\ObjectSerializer;
 
 /**
- * FlushInactiveOAuth2TokensRequest Class Doc Comment
+ * Extension Class Doc Comment
  *
  * @category Class
+ * @description Extension Extension Extension Extension represents the ASN.1 structure of the same name. See RFC 5280, section 4.2.
  * @package  Ory\Hydra\Client
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
-class FlushInactiveOAuth2TokensRequest implements ModelInterface, ArrayAccess
+class Extension implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -49,7 +50,7 @@ class FlushInactiveOAuth2TokensRequest implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $openAPIModelName = 'flushInactiveOAuth2TokensRequest';
+    protected static $openAPIModelName = 'Extension';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -57,7 +58,9 @@ class FlushInactiveOAuth2TokensRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
-        'notAfter' => '\DateTime'
+        'critical' => 'bool',
+        'id' => 'int[]',
+        'value' => 'int[]'
     ];
 
     /**
@@ -66,7 +69,9 @@ class FlushInactiveOAuth2TokensRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPIFormats = [
-        'notAfter' => 'date-time'
+        'critical' => null,
+        'id' => 'int64',
+        'value' => 'uint8'
     ];
 
     /**
@@ -96,7 +101,9 @@ class FlushInactiveOAuth2TokensRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'notAfter' => 'notAfter'
+        'critical' => 'Critical',
+        'id' => 'Id',
+        'value' => 'Value'
     ];
 
     /**
@@ -105,7 +112,9 @@ class FlushInactiveOAuth2TokensRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'notAfter' => 'setNotAfter'
+        'critical' => 'setCritical',
+        'id' => 'setId',
+        'value' => 'setValue'
     ];
 
     /**
@@ -114,7 +123,9 @@ class FlushInactiveOAuth2TokensRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'notAfter' => 'getNotAfter'
+        'critical' => 'getCritical',
+        'id' => 'getId',
+        'value' => 'getValue'
     ];
 
     /**
@@ -177,7 +188,9 @@ class FlushInactiveOAuth2TokensRequest implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['notAfter'] = isset($data['notAfter']) ? $data['notAfter'] : null;
+        $this->container['critical'] = isset($data['critical']) ? $data['critical'] : null;
+        $this->container['id'] = isset($data['id']) ? $data['id'] : null;
+        $this->container['value'] = isset($data['value']) ? $data['value'] : null;
     }
 
     /**
@@ -205,25 +218,73 @@ class FlushInactiveOAuth2TokensRequest implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets notAfter
+     * Gets critical
      *
-     * @return \DateTime|null
+     * @return bool|null
      */
-    public function getNotAfter()
+    public function getCritical()
     {
-        return $this->container['notAfter'];
+        return $this->container['critical'];
     }
 
     /**
-     * Sets notAfter
+     * Sets critical
      *
-     * @param \DateTime|null $notAfter NotAfter sets after which point tokens should not be flushed. This is useful when you want to keep a history of recently issued tokens for auditing.
+     * @param bool|null $critical critical
      *
      * @return $this
      */
-    public function setNotAfter($notAfter)
+    public function setCritical($critical)
     {
-        $this->container['notAfter'] = $notAfter;
+        $this->container['critical'] = $critical;
+
+        return $this;
+    }
+
+    /**
+     * Gets id
+     *
+     * @return int[]|null
+     */
+    public function getId()
+    {
+        return $this->container['id'];
+    }
+
+    /**
+     * Sets id
+     *
+     * @param int[]|null $id id
+     *
+     * @return $this
+     */
+    public function setId($id)
+    {
+        $this->container['id'] = $id;
+
+        return $this;
+    }
+
+    /**
+     * Gets value
+     *
+     * @return int[]|null
+     */
+    public function getValue()
+    {
+        return $this->container['value'];
+    }
+
+    /**
+     * Sets value
+     *
+     * @param int[]|null $value value
+     *
+     * @return $this
+     */
+    public function setValue($value)
+    {
+        $this->container['value'] = $value;
 
         return $this;
     }

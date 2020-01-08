@@ -1,6 +1,6 @@
 <?php
 /**
- * OpenIDConnectContext
+ * URL
  *
  * PHP version 5
  *
@@ -33,14 +33,15 @@ use \ArrayAccess;
 use \Ory\Hydra\Client\ObjectSerializer;
 
 /**
- * OpenIDConnectContext Class Doc Comment
+ * URL Class Doc Comment
  *
  * @category Class
+ * @description The general form represented is:  [scheme:][//[userinfo@]host][/]path[?query][#fragment]  URLs that do not start with a slash after the scheme are interpreted as:  scheme:opaque[?query][#fragment]  Note that the Path field is stored in decoded form: /%47%6f%2f becomes /Go/. A consequence is that it is impossible to tell which slashes in the Path were slashes in the raw URL and which were %2f. This distinction is rarely important, but when it is, the code should use RawPath, an optional field which only gets set if the default encoding is different from Path.  URL&#39;s String method uses the EscapedPath method to obtain the path. See the EscapedPath method for more details.
  * @package  Ory\Hydra\Client
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
-class OpenIDConnectContext implements ModelInterface, ArrayAccess
+class URL implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -49,7 +50,7 @@ class OpenIDConnectContext implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $openAPIModelName = 'openIDConnectContext';
+    protected static $openAPIModelName = 'URL';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -57,11 +58,15 @@ class OpenIDConnectContext implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
-        'acrValues' => 'string[]',
-        'display' => 'string',
-        'idTokenHintClaims' => 'map[string,object]',
-        'loginHint' => 'string',
-        'uiLocales' => 'string[]'
+        'forceQuery' => 'bool',
+        'fragment' => 'string',
+        'host' => 'string',
+        'opaque' => 'string',
+        'path' => 'string',
+        'rawPath' => 'string',
+        'rawQuery' => 'string',
+        'scheme' => 'string',
+        'user' => 'object'
     ];
 
     /**
@@ -70,11 +75,15 @@ class OpenIDConnectContext implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPIFormats = [
-        'acrValues' => null,
-        'display' => null,
-        'idTokenHintClaims' => null,
-        'loginHint' => null,
-        'uiLocales' => null
+        'forceQuery' => null,
+        'fragment' => null,
+        'host' => null,
+        'opaque' => null,
+        'path' => null,
+        'rawPath' => null,
+        'rawQuery' => null,
+        'scheme' => null,
+        'user' => null
     ];
 
     /**
@@ -104,11 +113,15 @@ class OpenIDConnectContext implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'acrValues' => 'acr_values',
-        'display' => 'display',
-        'idTokenHintClaims' => 'id_token_hint_claims',
-        'loginHint' => 'login_hint',
-        'uiLocales' => 'ui_locales'
+        'forceQuery' => 'ForceQuery',
+        'fragment' => 'Fragment',
+        'host' => 'Host',
+        'opaque' => 'Opaque',
+        'path' => 'Path',
+        'rawPath' => 'RawPath',
+        'rawQuery' => 'RawQuery',
+        'scheme' => 'Scheme',
+        'user' => 'User'
     ];
 
     /**
@@ -117,11 +130,15 @@ class OpenIDConnectContext implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'acrValues' => 'setAcrValues',
-        'display' => 'setDisplay',
-        'idTokenHintClaims' => 'setIdTokenHintClaims',
-        'loginHint' => 'setLoginHint',
-        'uiLocales' => 'setUiLocales'
+        'forceQuery' => 'setForceQuery',
+        'fragment' => 'setFragment',
+        'host' => 'setHost',
+        'opaque' => 'setOpaque',
+        'path' => 'setPath',
+        'rawPath' => 'setRawPath',
+        'rawQuery' => 'setRawQuery',
+        'scheme' => 'setScheme',
+        'user' => 'setUser'
     ];
 
     /**
@@ -130,11 +147,15 @@ class OpenIDConnectContext implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'acrValues' => 'getAcrValues',
-        'display' => 'getDisplay',
-        'idTokenHintClaims' => 'getIdTokenHintClaims',
-        'loginHint' => 'getLoginHint',
-        'uiLocales' => 'getUiLocales'
+        'forceQuery' => 'getForceQuery',
+        'fragment' => 'getFragment',
+        'host' => 'getHost',
+        'opaque' => 'getOpaque',
+        'path' => 'getPath',
+        'rawPath' => 'getRawPath',
+        'rawQuery' => 'getRawQuery',
+        'scheme' => 'getScheme',
+        'user' => 'getUser'
     ];
 
     /**
@@ -197,11 +218,15 @@ class OpenIDConnectContext implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['acrValues'] = isset($data['acrValues']) ? $data['acrValues'] : null;
-        $this->container['display'] = isset($data['display']) ? $data['display'] : null;
-        $this->container['idTokenHintClaims'] = isset($data['idTokenHintClaims']) ? $data['idTokenHintClaims'] : null;
-        $this->container['loginHint'] = isset($data['loginHint']) ? $data['loginHint'] : null;
-        $this->container['uiLocales'] = isset($data['uiLocales']) ? $data['uiLocales'] : null;
+        $this->container['forceQuery'] = isset($data['forceQuery']) ? $data['forceQuery'] : null;
+        $this->container['fragment'] = isset($data['fragment']) ? $data['fragment'] : null;
+        $this->container['host'] = isset($data['host']) ? $data['host'] : null;
+        $this->container['opaque'] = isset($data['opaque']) ? $data['opaque'] : null;
+        $this->container['path'] = isset($data['path']) ? $data['path'] : null;
+        $this->container['rawPath'] = isset($data['rawPath']) ? $data['rawPath'] : null;
+        $this->container['rawQuery'] = isset($data['rawQuery']) ? $data['rawQuery'] : null;
+        $this->container['scheme'] = isset($data['scheme']) ? $data['scheme'] : null;
+        $this->container['user'] = isset($data['user']) ? $data['user'] : null;
     }
 
     /**
@@ -229,121 +254,217 @@ class OpenIDConnectContext implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets acrValues
+     * Gets forceQuery
      *
-     * @return string[]|null
+     * @return bool|null
      */
-    public function getAcrValues()
+    public function getForceQuery()
     {
-        return $this->container['acrValues'];
+        return $this->container['forceQuery'];
     }
 
     /**
-     * Sets acrValues
+     * Sets forceQuery
      *
-     * @param string[]|null $acrValues ACRValues is the Authentication AuthorizationContext Class Reference requested in the OAuth 2.0 Authorization request. It is a parameter defined by OpenID Connect and expresses which level of authentication (e.g. 2FA) is required.  OpenID Connect defines it as follows: > Requested Authentication AuthorizationContext Class Reference values. Space-separated string that specifies the acr values that the Authorization Server is being requested to use for processing this Authentication Request, with the values appearing in order of preference. The Authentication AuthorizationContext Class satisfied by the authentication performed is returned as the acr Claim Value, as specified in Section 2. The acr Claim is requested as a Voluntary Claim by this parameter.
+     * @param bool|null $forceQuery force query
      *
      * @return $this
      */
-    public function setAcrValues($acrValues)
+    public function setForceQuery($forceQuery)
     {
-        $this->container['acrValues'] = $acrValues;
+        $this->container['forceQuery'] = $forceQuery;
 
         return $this;
     }
 
     /**
-     * Gets display
+     * Gets fragment
      *
      * @return string|null
      */
-    public function getDisplay()
+    public function getFragment()
     {
-        return $this->container['display'];
+        return $this->container['fragment'];
     }
 
     /**
-     * Sets display
+     * Sets fragment
      *
-     * @param string|null $display Display is a string value that specifies how the Authorization Server displays the authentication and consent user interface pages to the End-User. The defined values are: page: The Authorization Server SHOULD display the authentication and consent UI consistent with a full User Agent page view. If the display parameter is not specified, this is the default display mode. popup: The Authorization Server SHOULD display the authentication and consent UI consistent with a popup User Agent window. The popup User Agent window should be of an appropriate size for a login-focused dialog and should not obscure the entire window that it is popping up over. touch: The Authorization Server SHOULD display the authentication and consent UI consistent with a device that leverages a touch interface. wap: The Authorization Server SHOULD display the authentication and consent UI consistent with a \"feature phone\" type display.  The Authorization Server MAY also attempt to detect the capabilities of the User Agent and present an appropriate display.
+     * @param string|null $fragment fragment
      *
      * @return $this
      */
-    public function setDisplay($display)
+    public function setFragment($fragment)
     {
-        $this->container['display'] = $display;
+        $this->container['fragment'] = $fragment;
 
         return $this;
     }
 
     /**
-     * Gets idTokenHintClaims
-     *
-     * @return map[string,object]|null
-     */
-    public function getIdTokenHintClaims()
-    {
-        return $this->container['idTokenHintClaims'];
-    }
-
-    /**
-     * Sets idTokenHintClaims
-     *
-     * @param map[string,object]|null $idTokenHintClaims IDTokenHintClaims are the claims of the ID Token previously issued by the Authorization Server being passed as a hint about the End-User's current or past authenticated session with the Client.
-     *
-     * @return $this
-     */
-    public function setIdTokenHintClaims($idTokenHintClaims)
-    {
-        $this->container['idTokenHintClaims'] = $idTokenHintClaims;
-
-        return $this;
-    }
-
-    /**
-     * Gets loginHint
+     * Gets host
      *
      * @return string|null
      */
-    public function getLoginHint()
+    public function getHost()
     {
-        return $this->container['loginHint'];
+        return $this->container['host'];
     }
 
     /**
-     * Sets loginHint
+     * Sets host
      *
-     * @param string|null $loginHint LoginHint hints about the login identifier the End-User might use to log in (if necessary). This hint can be used by an RP if it first asks the End-User for their e-mail address (or other identifier) and then wants to pass that value as a hint to the discovered authorization service. This value MAY also be a phone number in the format specified for the phone_number Claim. The use of this parameter is optional.
+     * @param string|null $host host
      *
      * @return $this
      */
-    public function setLoginHint($loginHint)
+    public function setHost($host)
     {
-        $this->container['loginHint'] = $loginHint;
+        $this->container['host'] = $host;
 
         return $this;
     }
 
     /**
-     * Gets uiLocales
+     * Gets opaque
      *
-     * @return string[]|null
+     * @return string|null
      */
-    public function getUiLocales()
+    public function getOpaque()
     {
-        return $this->container['uiLocales'];
+        return $this->container['opaque'];
     }
 
     /**
-     * Sets uiLocales
+     * Sets opaque
      *
-     * @param string[]|null $uiLocales UILocales is the End-User'id preferred languages and scripts for the user interface, represented as a space-separated list of BCP47 [RFC5646] language tag values, ordered by preference. For instance, the value \"fr-CA fr en\" represents a preference for French as spoken in Canada, then French (without a region designation), followed by English (without a region designation). An error SHOULD NOT result if some or all of the requested locales are not supported by the OpenID Provider.
+     * @param string|null $opaque opaque
      *
      * @return $this
      */
-    public function setUiLocales($uiLocales)
+    public function setOpaque($opaque)
     {
-        $this->container['uiLocales'] = $uiLocales;
+        $this->container['opaque'] = $opaque;
+
+        return $this;
+    }
+
+    /**
+     * Gets path
+     *
+     * @return string|null
+     */
+    public function getPath()
+    {
+        return $this->container['path'];
+    }
+
+    /**
+     * Sets path
+     *
+     * @param string|null $path path
+     *
+     * @return $this
+     */
+    public function setPath($path)
+    {
+        $this->container['path'] = $path;
+
+        return $this;
+    }
+
+    /**
+     * Gets rawPath
+     *
+     * @return string|null
+     */
+    public function getRawPath()
+    {
+        return $this->container['rawPath'];
+    }
+
+    /**
+     * Sets rawPath
+     *
+     * @param string|null $rawPath raw path
+     *
+     * @return $this
+     */
+    public function setRawPath($rawPath)
+    {
+        $this->container['rawPath'] = $rawPath;
+
+        return $this;
+    }
+
+    /**
+     * Gets rawQuery
+     *
+     * @return string|null
+     */
+    public function getRawQuery()
+    {
+        return $this->container['rawQuery'];
+    }
+
+    /**
+     * Sets rawQuery
+     *
+     * @param string|null $rawQuery raw query
+     *
+     * @return $this
+     */
+    public function setRawQuery($rawQuery)
+    {
+        $this->container['rawQuery'] = $rawQuery;
+
+        return $this;
+    }
+
+    /**
+     * Gets scheme
+     *
+     * @return string|null
+     */
+    public function getScheme()
+    {
+        return $this->container['scheme'];
+    }
+
+    /**
+     * Sets scheme
+     *
+     * @param string|null $scheme scheme
+     *
+     * @return $this
+     */
+    public function setScheme($scheme)
+    {
+        $this->container['scheme'] = $scheme;
+
+        return $this;
+    }
+
+    /**
+     * Gets user
+     *
+     * @return object|null
+     */
+    public function getUser()
+    {
+        return $this->container['user'];
+    }
+
+    /**
+     * Sets user
+     *
+     * @param object|null $user Userinfo Userinfo Userinfo The Userinfo type is an immutable encapsulation of username and password details for a URL. An existing Userinfo value is guaranteed to have a username set (potentially empty, as allowed by RFC 2396), and optionally a password.
+     *
+     * @return $this
+     */
+    public function setUser($user)
+    {
+        $this->container['user'] = $user;
 
         return $this;
     }
