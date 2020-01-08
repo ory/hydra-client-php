@@ -36,7 +36,7 @@ use \Ory\Hydra\Client\ObjectSerializer;
  * OauthTokenResponse Class Doc Comment
  *
  * @category Class
- * @description OauthTokenResponse The token response
+ * @description The token response
  * @package  Ory\Hydra\Client
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech

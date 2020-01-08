@@ -35,7 +35,7 @@ use PHPUnit\Framework\TestCase;
  * ExtensionTest Class Doc Comment
  *
  * @category    Class
- * @description Extension Extension Extension Extension represents the ASN.1 structure of the same name. See RFC 5280, section 4.2.
+ * @description Extension Extension Extension Extension Extension Extension represents the ASN.1 structure of the same name. See RFC 5280, section 4.2.
  * @package     Ory\Hydra\Client
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech

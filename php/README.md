@@ -128,7 +128,6 @@ Class | Method | HTTP request | Description
  - [AcceptConsentRequest](docs/Model/AcceptConsentRequest.md)
  - [AcceptLoginRequest](docs/Model/AcceptLoginRequest.md)
  - [AttributeTypeAndValue](docs/Model/AttributeTypeAndValue.md)
- - [Certificate](docs/Model/Certificate.md)
  - [CompletedRequest](docs/Model/CompletedRequest.md)
  - [ConsentRequest](docs/Model/ConsentRequest.md)
  - [ConsentRequestSession](docs/Model/ConsentRequestSession.md)

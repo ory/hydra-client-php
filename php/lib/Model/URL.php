@@ -458,7 +458,7 @@ class URL implements ModelInterface, ArrayAccess
     /**
      * Sets user
      *
-     * @param object|null $user Userinfo Userinfo Userinfo The Userinfo type is an immutable encapsulation of username and password details for a URL. An existing Userinfo value is guaranteed to have a username set (potentially empty, as allowed by RFC 2396), and optionally a password.
+     * @param object|null $user Userinfo Userinfo Userinfo Userinfo Userinfo The Userinfo type is an immutable encapsulation of username and password details for a URL. An existing Userinfo value is guaranteed to have a username set (potentially empty, as allowed by RFC 2396), and optionally a password.
      *
      * @return $this
      */
