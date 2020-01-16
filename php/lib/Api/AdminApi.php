@@ -118,7 +118,7 @@ class AdminApi
     /**
      * Operation acceptConsentRequest
      *
-     * Accept an consent request
+     * Accept a consent request
      *
      * @param  string $consentChallenge consentChallenge (required)
      * @param  \Ory\Hydra\Client\Model\AcceptConsentRequest $body body (optional)
@@ -136,7 +136,7 @@ class AdminApi
     /**
      * Operation acceptConsentRequestWithHttpInfo
      *
-     * Accept an consent request
+     * Accept a consent request
      *
      * @param  string $consentChallenge (required)
      * @param  \Ory\Hydra\Client\Model\AcceptConsentRequest $body (optional)
@@ -265,7 +265,7 @@ class AdminApi
     /**
      * Operation acceptConsentRequestAsync
      *
-     * Accept an consent request
+     * Accept a consent request
      *
      * @param  string $consentChallenge (required)
      * @param  \Ory\Hydra\Client\Model\AcceptConsentRequest $body (optional)
@@ -286,7 +286,7 @@ class AdminApi
     /**
      * Operation acceptConsentRequestAsyncWithHttpInfo
      *
-     * Accept an consent request
+     * Accept a consent request
      *
      * @param  string $consentChallenge (required)
      * @param  \Ory\Hydra\Client\Model\AcceptConsentRequest $body (optional)
@@ -434,7 +434,7 @@ class AdminApi
     /**
      * Operation acceptLoginRequest
      *
-     * Accept an login request
+     * Accept a login request
      *
      * @param  string $loginChallenge loginChallenge (required)
      * @param  \Ory\Hydra\Client\Model\AcceptLoginRequest $body body (optional)
@@ -452,7 +452,7 @@ class AdminApi
     /**
      * Operation acceptLoginRequestWithHttpInfo
      *
-     * Accept an login request
+     * Accept a login request
      *
      * @param  string $loginChallenge (required)
      * @param  \Ory\Hydra\Client\Model\AcceptLoginRequest $body (optional)
@@ -601,7 +601,7 @@ class AdminApi
     /**
      * Operation acceptLoginRequestAsync
      *
-     * Accept an login request
+     * Accept a login request
      *
      * @param  string $loginChallenge (required)
      * @param  \Ory\Hydra\Client\Model\AcceptLoginRequest $body (optional)
@@ -622,7 +622,7 @@ class AdminApi
     /**
      * Operation acceptLoginRequestAsyncWithHttpInfo
      *
-     * Accept an login request
+     * Accept a login request
      *
      * @param  string $loginChallenge (required)
      * @param  \Ory\Hydra\Client\Model\AcceptLoginRequest $body (optional)
@@ -3720,7 +3720,7 @@ class AdminApi
     /**
      * Operation getLoginRequest
      *
-     * Get an login request
+     * Get a login request
      *
      * @param  string $loginChallenge loginChallenge (required)
      *
@@ -3737,7 +3737,7 @@ class AdminApi
     /**
      * Operation getLoginRequestWithHttpInfo
      *
-     * Get an login request
+     * Get a login request
      *
      * @param  string $loginChallenge (required)
      *
@@ -3905,7 +3905,7 @@ class AdminApi
     /**
      * Operation getLoginRequestAsync
      *
-     * Get an login request
+     * Get a login request
      *
      * @param  string $loginChallenge (required)
      *
@@ -3925,7 +3925,7 @@ class AdminApi
     /**
      * Operation getLoginRequestAsyncWithHttpInfo
      *
-     * Get an login request
+     * Get a login request
      *
      * @param  string $loginChallenge (required)
      *
@@ -6363,7 +6363,7 @@ class AdminApi
     /**
      * Operation rejectConsentRequest
      *
-     * Reject an consent request
+     * Reject a consent request
      *
      * @param  string $consentChallenge consentChallenge (required)
      * @param  \Ory\Hydra\Client\Model\RejectRequest $body body (optional)
@@ -6381,7 +6381,7 @@ class AdminApi
     /**
      * Operation rejectConsentRequestWithHttpInfo
      *
-     * Reject an consent request
+     * Reject a consent request
      *
      * @param  string $consentChallenge (required)
      * @param  \Ory\Hydra\Client\Model\RejectRequest $body (optional)
@@ -6510,7 +6510,7 @@ class AdminApi
     /**
      * Operation rejectConsentRequestAsync
      *
-     * Reject an consent request
+     * Reject a consent request
      *
      * @param  string $consentChallenge (required)
      * @param  \Ory\Hydra\Client\Model\RejectRequest $body (optional)
@@ -6531,7 +6531,7 @@ class AdminApi
     /**
      * Operation rejectConsentRequestAsyncWithHttpInfo
      *
-     * Reject an consent request
+     * Reject a consent request
      *
      * @param  string $consentChallenge (required)
      * @param  \Ory\Hydra\Client\Model\RejectRequest $body (optional)
