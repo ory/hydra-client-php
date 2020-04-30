@@ -1,6 +1,6 @@
 <?php
 /**
- * HealthNotReadyStatus
+ * PluginConfigNetwork
  *
  * PHP version 5
  *
@@ -33,14 +33,15 @@ use \ArrayAccess;
 use \Ory\Hydra\Client\ObjectSerializer;
 
 /**
- * HealthNotReadyStatus Class Doc Comment
+ * PluginConfigNetwork Class Doc Comment
  *
  * @category Class
+ * @description PluginConfigNetwork plugin config network
  * @package  Ory\Hydra\Client
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
-class HealthNotReadyStatus implements ModelInterface, ArrayAccess
+class PluginConfigNetwork implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -49,7 +50,7 @@ class HealthNotReadyStatus implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $openAPIModelName = 'healthNotReadyStatus';
+    protected static $openAPIModelName = 'PluginConfigNetwork';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -57,7 +58,7 @@ class HealthNotReadyStatus implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
-        'errors' => 'map[string,string]'
+        'type' => 'string'
     ];
 
     /**
@@ -66,7 +67,7 @@ class HealthNotReadyStatus implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPIFormats = [
-        'errors' => null
+        'type' => null
     ];
 
     /**
@@ -96,7 +97,7 @@ class HealthNotReadyStatus implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'errors' => 'errors'
+        'type' => 'Type'
     ];
 
     /**
@@ -105,7 +106,7 @@ class HealthNotReadyStatus implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'errors' => 'setErrors'
+        'type' => 'setType'
     ];
 
     /**
@@ -114,7 +115,7 @@ class HealthNotReadyStatus implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'errors' => 'getErrors'
+        'type' => 'getType'
     ];
 
     /**
@@ -177,7 +178,7 @@ class HealthNotReadyStatus implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['errors'] = isset($data['errors']) ? $data['errors'] : null;
+        $this->container['type'] = isset($data['type']) ? $data['type'] : null;
     }
 
     /**
@@ -189,6 +190,9 @@ class HealthNotReadyStatus implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
+        if ($this->container['type'] === null) {
+            $invalidProperties[] = "'type' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -205,25 +209,25 @@ class HealthNotReadyStatus implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets errors
+     * Gets type
      *
-     * @return map[string,string]|null
+     * @return string
      */
-    public function getErrors()
+    public function getType()
     {
-        return $this->container['errors'];
+        return $this->container['type'];
     }
 
     /**
-     * Sets errors
+     * Sets type
      *
-     * @param map[string,string]|null $errors Errors contains a list of errors that caused the not ready status.
+     * @param string $type type
      *
      * @return $this
      */
-    public function setErrors($errors)
+    public function setType($type)
     {
-        $this->container['errors'] = $errors;
+        $this->container['type'] = $type;
 
         return $this;
     }

@@ -1,6 +1,6 @@
 <?php
 /**
- * HealthNotReadyStatus
+ * PluginConfigInterface
  *
  * PHP version 5
  *
@@ -33,14 +33,15 @@ use \ArrayAccess;
 use \Ory\Hydra\Client\ObjectSerializer;
 
 /**
- * HealthNotReadyStatus Class Doc Comment
+ * PluginConfigInterface Class Doc Comment
  *
  * @category Class
+ * @description PluginConfigInterface The interface between Docker and the plugin
  * @package  Ory\Hydra\Client
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
-class HealthNotReadyStatus implements ModelInterface, ArrayAccess
+class PluginConfigInterface implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -49,7 +50,7 @@ class HealthNotReadyStatus implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $openAPIModelName = 'healthNotReadyStatus';
+    protected static $openAPIModelName = 'PluginConfigInterface';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -57,7 +58,8 @@ class HealthNotReadyStatus implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
-        'errors' => 'map[string,string]'
+        'socket' => 'string',
+        'types' => '\Ory\Hydra\Client\Model\PluginInterfaceType[]'
     ];
 
     /**
@@ -66,7 +68,8 @@ class HealthNotReadyStatus implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPIFormats = [
-        'errors' => null
+        'socket' => null,
+        'types' => null
     ];
 
     /**
@@ -96,7 +99,8 @@ class HealthNotReadyStatus implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'errors' => 'errors'
+        'socket' => 'Socket',
+        'types' => 'Types'
     ];
 
     /**
@@ -105,7 +109,8 @@ class HealthNotReadyStatus implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'errors' => 'setErrors'
+        'socket' => 'setSocket',
+        'types' => 'setTypes'
     ];
 
     /**
@@ -114,7 +119,8 @@ class HealthNotReadyStatus implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'errors' => 'getErrors'
+        'socket' => 'getSocket',
+        'types' => 'getTypes'
     ];
 
     /**
@@ -177,7 +183,8 @@ class HealthNotReadyStatus implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['errors'] = isset($data['errors']) ? $data['errors'] : null;
+        $this->container['socket'] = isset($data['socket']) ? $data['socket'] : null;
+        $this->container['types'] = isset($data['types']) ? $data['types'] : null;
     }
 
     /**
@@ -189,6 +196,12 @@ class HealthNotReadyStatus implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
+        if ($this->container['socket'] === null) {
+            $invalidProperties[] = "'socket' can't be null";
+        }
+        if ($this->container['types'] === null) {
+            $invalidProperties[] = "'types' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -205,25 +218,49 @@ class HealthNotReadyStatus implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets errors
+     * Gets socket
      *
-     * @return map[string,string]|null
+     * @return string
      */
-    public function getErrors()
+    public function getSocket()
     {
-        return $this->container['errors'];
+        return $this->container['socket'];
     }
 
     /**
-     * Sets errors
+     * Sets socket
      *
-     * @param map[string,string]|null $errors Errors contains a list of errors that caused the not ready status.
+     * @param string $socket socket
      *
      * @return $this
      */
-    public function setErrors($errors)
+    public function setSocket($socket)
     {
-        $this->container['errors'] = $errors;
+        $this->container['socket'] = $socket;
+
+        return $this;
+    }
+
+    /**
+     * Gets types
+     *
+     * @return \Ory\Hydra\Client\Model\PluginInterfaceType[]
+     */
+    public function getTypes()
+    {
+        return $this->container['types'];
+    }
+
+    /**
+     * Sets types
+     *
+     * @param \Ory\Hydra\Client\Model\PluginInterfaceType[] $types types
+     *
+     * @return $this
+     */
+    public function setTypes($types)
+    {
+        $this->container['types'] = $types;
 
         return $this;
     }

@@ -1,6 +1,6 @@
 <?php
 /**
- * HealthNotReadyStatus
+ * PluginSettings
  *
  * PHP version 5
  *
@@ -33,14 +33,14 @@ use \ArrayAccess;
 use \Ory\Hydra\Client\ObjectSerializer;
 
 /**
- * HealthNotReadyStatus Class Doc Comment
+ * PluginSettings Class Doc Comment
  *
  * @category Class
  * @package  Ory\Hydra\Client
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
-class HealthNotReadyStatus implements ModelInterface, ArrayAccess
+class PluginSettings implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -49,7 +49,7 @@ class HealthNotReadyStatus implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $openAPIModelName = 'healthNotReadyStatus';
+    protected static $openAPIModelName = 'PluginSettings';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -57,7 +57,10 @@ class HealthNotReadyStatus implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
-        'errors' => 'map[string,string]'
+        'args' => 'string[]',
+        'devices' => '\Ory\Hydra\Client\Model\PluginDevice[]',
+        'env' => 'string[]',
+        'mounts' => '\Ory\Hydra\Client\Model\PluginMount[]'
     ];
 
     /**
@@ -66,7 +69,10 @@ class HealthNotReadyStatus implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPIFormats = [
-        'errors' => null
+        'args' => null,
+        'devices' => null,
+        'env' => null,
+        'mounts' => null
     ];
 
     /**
@@ -96,7 +102,10 @@ class HealthNotReadyStatus implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'errors' => 'errors'
+        'args' => 'Args',
+        'devices' => 'Devices',
+        'env' => 'Env',
+        'mounts' => 'Mounts'
     ];
 
     /**
@@ -105,7 +114,10 @@ class HealthNotReadyStatus implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'errors' => 'setErrors'
+        'args' => 'setArgs',
+        'devices' => 'setDevices',
+        'env' => 'setEnv',
+        'mounts' => 'setMounts'
     ];
 
     /**
@@ -114,7 +126,10 @@ class HealthNotReadyStatus implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'errors' => 'getErrors'
+        'args' => 'getArgs',
+        'devices' => 'getDevices',
+        'env' => 'getEnv',
+        'mounts' => 'getMounts'
     ];
 
     /**
@@ -177,7 +192,10 @@ class HealthNotReadyStatus implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['errors'] = isset($data['errors']) ? $data['errors'] : null;
+        $this->container['args'] = isset($data['args']) ? $data['args'] : null;
+        $this->container['devices'] = isset($data['devices']) ? $data['devices'] : null;
+        $this->container['env'] = isset($data['env']) ? $data['env'] : null;
+        $this->container['mounts'] = isset($data['mounts']) ? $data['mounts'] : null;
     }
 
     /**
@@ -189,6 +207,18 @@ class HealthNotReadyStatus implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
+        if ($this->container['args'] === null) {
+            $invalidProperties[] = "'args' can't be null";
+        }
+        if ($this->container['devices'] === null) {
+            $invalidProperties[] = "'devices' can't be null";
+        }
+        if ($this->container['env'] === null) {
+            $invalidProperties[] = "'env' can't be null";
+        }
+        if ($this->container['mounts'] === null) {
+            $invalidProperties[] = "'mounts' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -205,25 +235,97 @@ class HealthNotReadyStatus implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets errors
+     * Gets args
      *
-     * @return map[string,string]|null
+     * @return string[]
      */
-    public function getErrors()
+    public function getArgs()
     {
-        return $this->container['errors'];
+        return $this->container['args'];
     }
 
     /**
-     * Sets errors
+     * Sets args
      *
-     * @param map[string,string]|null $errors Errors contains a list of errors that caused the not ready status.
+     * @param string[] $args args
      *
      * @return $this
      */
-    public function setErrors($errors)
+    public function setArgs($args)
     {
-        $this->container['errors'] = $errors;
+        $this->container['args'] = $args;
+
+        return $this;
+    }
+
+    /**
+     * Gets devices
+     *
+     * @return \Ory\Hydra\Client\Model\PluginDevice[]
+     */
+    public function getDevices()
+    {
+        return $this->container['devices'];
+    }
+
+    /**
+     * Sets devices
+     *
+     * @param \Ory\Hydra\Client\Model\PluginDevice[] $devices devices
+     *
+     * @return $this
+     */
+    public function setDevices($devices)
+    {
+        $this->container['devices'] = $devices;
+
+        return $this;
+    }
+
+    /**
+     * Gets env
+     *
+     * @return string[]
+     */
+    public function getEnv()
+    {
+        return $this->container['env'];
+    }
+
+    /**
+     * Sets env
+     *
+     * @param string[] $env env
+     *
+     * @return $this
+     */
+    public function setEnv($env)
+    {
+        $this->container['env'] = $env;
+
+        return $this;
+    }
+
+    /**
+     * Gets mounts
+     *
+     * @return \Ory\Hydra\Client\Model\PluginMount[]
+     */
+    public function getMounts()
+    {
+        return $this->container['mounts'];
+    }
+
+    /**
+     * Sets mounts
+     *
+     * @param \Ory\Hydra\Client\Model\PluginMount[] $mounts mounts
+     *
+     * @return $this
+     */
+    public function setMounts($mounts)
+    {
+        $this->container['mounts'] = $mounts;
 
         return $this;
     }

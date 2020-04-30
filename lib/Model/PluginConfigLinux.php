@@ -1,6 +1,6 @@
 <?php
 /**
- * HealthNotReadyStatus
+ * PluginConfigLinux
  *
  * PHP version 5
  *
@@ -33,14 +33,15 @@ use \ArrayAccess;
 use \Ory\Hydra\Client\ObjectSerializer;
 
 /**
- * HealthNotReadyStatus Class Doc Comment
+ * PluginConfigLinux Class Doc Comment
  *
  * @category Class
+ * @description PluginConfigLinux plugin config linux
  * @package  Ory\Hydra\Client
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
-class HealthNotReadyStatus implements ModelInterface, ArrayAccess
+class PluginConfigLinux implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -49,7 +50,7 @@ class HealthNotReadyStatus implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $openAPIModelName = 'healthNotReadyStatus';
+    protected static $openAPIModelName = 'PluginConfigLinux';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -57,7 +58,9 @@ class HealthNotReadyStatus implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
-        'errors' => 'map[string,string]'
+        'allowAllDevices' => 'bool',
+        'capabilities' => 'string[]',
+        'devices' => '\Ory\Hydra\Client\Model\PluginDevice[]'
     ];
 
     /**
@@ -66,7 +69,9 @@ class HealthNotReadyStatus implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPIFormats = [
-        'errors' => null
+        'allowAllDevices' => null,
+        'capabilities' => null,
+        'devices' => null
     ];
 
     /**
@@ -96,7 +101,9 @@ class HealthNotReadyStatus implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'errors' => 'errors'
+        'allowAllDevices' => 'AllowAllDevices',
+        'capabilities' => 'Capabilities',
+        'devices' => 'Devices'
     ];
 
     /**
@@ -105,7 +112,9 @@ class HealthNotReadyStatus implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'errors' => 'setErrors'
+        'allowAllDevices' => 'setAllowAllDevices',
+        'capabilities' => 'setCapabilities',
+        'devices' => 'setDevices'
     ];
 
     /**
@@ -114,7 +123,9 @@ class HealthNotReadyStatus implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'errors' => 'getErrors'
+        'allowAllDevices' => 'getAllowAllDevices',
+        'capabilities' => 'getCapabilities',
+        'devices' => 'getDevices'
     ];
 
     /**
@@ -177,7 +188,9 @@ class HealthNotReadyStatus implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['errors'] = isset($data['errors']) ? $data['errors'] : null;
+        $this->container['allowAllDevices'] = isset($data['allowAllDevices']) ? $data['allowAllDevices'] : null;
+        $this->container['capabilities'] = isset($data['capabilities']) ? $data['capabilities'] : null;
+        $this->container['devices'] = isset($data['devices']) ? $data['devices'] : null;
     }
 
     /**
@@ -189,6 +202,15 @@ class HealthNotReadyStatus implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
+        if ($this->container['allowAllDevices'] === null) {
+            $invalidProperties[] = "'allowAllDevices' can't be null";
+        }
+        if ($this->container['capabilities'] === null) {
+            $invalidProperties[] = "'capabilities' can't be null";
+        }
+        if ($this->container['devices'] === null) {
+            $invalidProperties[] = "'devices' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -205,25 +227,73 @@ class HealthNotReadyStatus implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets errors
+     * Gets allowAllDevices
      *
-     * @return map[string,string]|null
+     * @return bool
      */
-    public function getErrors()
+    public function getAllowAllDevices()
     {
-        return $this->container['errors'];
+        return $this->container['allowAllDevices'];
     }
 
     /**
-     * Sets errors
+     * Sets allowAllDevices
      *
-     * @param map[string,string]|null $errors Errors contains a list of errors that caused the not ready status.
+     * @param bool $allowAllDevices allow all devices
      *
      * @return $this
      */
-    public function setErrors($errors)
+    public function setAllowAllDevices($allowAllDevices)
     {
-        $this->container['errors'] = $errors;
+        $this->container['allowAllDevices'] = $allowAllDevices;
+
+        return $this;
+    }
+
+    /**
+     * Gets capabilities
+     *
+     * @return string[]
+     */
+    public function getCapabilities()
+    {
+        return $this->container['capabilities'];
+    }
+
+    /**
+     * Sets capabilities
+     *
+     * @param string[] $capabilities capabilities
+     *
+     * @return $this
+     */
+    public function setCapabilities($capabilities)
+    {
+        $this->container['capabilities'] = $capabilities;
+
+        return $this;
+    }
+
+    /**
+     * Gets devices
+     *
+     * @return \Ory\Hydra\Client\Model\PluginDevice[]
+     */
+    public function getDevices()
+    {
+        return $this->container['devices'];
+    }
+
+    /**
+     * Sets devices
+     *
+     * @param \Ory\Hydra\Client\Model\PluginDevice[] $devices devices
+     *
+     * @return $this
+     */
+    public function setDevices($devices)
+    {
+        $this->container['devices'] = $devices;
 
         return $this;
     }

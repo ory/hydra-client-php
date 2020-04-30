@@ -1,6 +1,6 @@
 <?php
 /**
- * HealthNotReadyStatus
+ * PluginConfigUser
  *
  * PHP version 5
  *
@@ -33,14 +33,15 @@ use \ArrayAccess;
 use \Ory\Hydra\Client\ObjectSerializer;
 
 /**
- * HealthNotReadyStatus Class Doc Comment
+ * PluginConfigUser Class Doc Comment
  *
  * @category Class
+ * @description PluginConfigUser PluginConfigUser plugin config user
  * @package  Ory\Hydra\Client
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
-class HealthNotReadyStatus implements ModelInterface, ArrayAccess
+class PluginConfigUser implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -49,7 +50,7 @@ class HealthNotReadyStatus implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $openAPIModelName = 'healthNotReadyStatus';
+    protected static $openAPIModelName = 'PluginConfigUser';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -57,7 +58,8 @@ class HealthNotReadyStatus implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
-        'errors' => 'map[string,string]'
+        'gID' => 'int',
+        'uID' => 'int'
     ];
 
     /**
@@ -66,7 +68,8 @@ class HealthNotReadyStatus implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPIFormats = [
-        'errors' => null
+        'gID' => 'uint32',
+        'uID' => 'uint32'
     ];
 
     /**
@@ -96,7 +99,8 @@ class HealthNotReadyStatus implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'errors' => 'errors'
+        'gID' => 'GID',
+        'uID' => 'UID'
     ];
 
     /**
@@ -105,7 +109,8 @@ class HealthNotReadyStatus implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'errors' => 'setErrors'
+        'gID' => 'setGID',
+        'uID' => 'setUID'
     ];
 
     /**
@@ -114,7 +119,8 @@ class HealthNotReadyStatus implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'errors' => 'getErrors'
+        'gID' => 'getGID',
+        'uID' => 'getUID'
     ];
 
     /**
@@ -177,7 +183,8 @@ class HealthNotReadyStatus implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['errors'] = isset($data['errors']) ? $data['errors'] : null;
+        $this->container['gID'] = isset($data['gID']) ? $data['gID'] : null;
+        $this->container['uID'] = isset($data['uID']) ? $data['uID'] : null;
     }
 
     /**
@@ -205,25 +212,49 @@ class HealthNotReadyStatus implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets errors
+     * Gets gID
      *
-     * @return map[string,string]|null
+     * @return int|null
      */
-    public function getErrors()
+    public function getGID()
     {
-        return $this->container['errors'];
+        return $this->container['gID'];
     }
 
     /**
-     * Sets errors
+     * Sets gID
      *
-     * @param map[string,string]|null $errors Errors contains a list of errors that caused the not ready status.
+     * @param int|null $gID g ID
      *
      * @return $this
      */
-    public function setErrors($errors)
+    public function setGID($gID)
     {
-        $this->container['errors'] = $errors;
+        $this->container['gID'] = $gID;
+
+        return $this;
+    }
+
+    /**
+     * Gets uID
+     *
+     * @return int|null
+     */
+    public function getUID()
+    {
+        return $this->container['uID'];
+    }
+
+    /**
+     * Sets uID
+     *
+     * @param int|null $uID UID
+     *
+     * @return $this
+     */
+    public function setUID($uID)
+    {
+        $this->container['uID'] = $uID;
 
         return $this;
     }

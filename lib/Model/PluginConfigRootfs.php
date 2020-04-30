@@ -1,6 +1,6 @@
 <?php
 /**
- * HealthNotReadyStatus
+ * PluginConfigRootfs
  *
  * PHP version 5
  *
@@ -33,14 +33,15 @@ use \ArrayAccess;
 use \Ory\Hydra\Client\ObjectSerializer;
 
 /**
- * HealthNotReadyStatus Class Doc Comment
+ * PluginConfigRootfs Class Doc Comment
  *
  * @category Class
+ * @description PluginConfigRootfs plugin config rootfs
  * @package  Ory\Hydra\Client
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
-class HealthNotReadyStatus implements ModelInterface, ArrayAccess
+class PluginConfigRootfs implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -49,7 +50,7 @@ class HealthNotReadyStatus implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $openAPIModelName = 'healthNotReadyStatus';
+    protected static $openAPIModelName = 'PluginConfigRootfs';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -57,7 +58,8 @@ class HealthNotReadyStatus implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
-        'errors' => 'map[string,string]'
+        'diffIds' => 'string[]',
+        'type' => 'string'
     ];
 
     /**
@@ -66,7 +68,8 @@ class HealthNotReadyStatus implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPIFormats = [
-        'errors' => null
+        'diffIds' => null,
+        'type' => null
     ];
 
     /**
@@ -96,7 +99,8 @@ class HealthNotReadyStatus implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'errors' => 'errors'
+        'diffIds' => 'diff_ids',
+        'type' => 'type'
     ];
 
     /**
@@ -105,7 +109,8 @@ class HealthNotReadyStatus implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'errors' => 'setErrors'
+        'diffIds' => 'setDiffIds',
+        'type' => 'setType'
     ];
 
     /**
@@ -114,7 +119,8 @@ class HealthNotReadyStatus implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'errors' => 'getErrors'
+        'diffIds' => 'getDiffIds',
+        'type' => 'getType'
     ];
 
     /**
@@ -177,7 +183,8 @@ class HealthNotReadyStatus implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['errors'] = isset($data['errors']) ? $data['errors'] : null;
+        $this->container['diffIds'] = isset($data['diffIds']) ? $data['diffIds'] : null;
+        $this->container['type'] = isset($data['type']) ? $data['type'] : null;
     }
 
     /**
@@ -205,25 +212,49 @@ class HealthNotReadyStatus implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets errors
+     * Gets diffIds
      *
-     * @return map[string,string]|null
+     * @return string[]|null
      */
-    public function getErrors()
+    public function getDiffIds()
     {
-        return $this->container['errors'];
+        return $this->container['diffIds'];
     }
 
     /**
-     * Sets errors
+     * Sets diffIds
      *
-     * @param map[string,string]|null $errors Errors contains a list of errors that caused the not ready status.
+     * @param string[]|null $diffIds diff ids
      *
      * @return $this
      */
-    public function setErrors($errors)
+    public function setDiffIds($diffIds)
     {
-        $this->container['errors'] = $errors;
+        $this->container['diffIds'] = $diffIds;
+
+        return $this;
+    }
+
+    /**
+     * Gets type
+     *
+     * @return string|null
+     */
+    public function getType()
+    {
+        return $this->container['type'];
+    }
+
+    /**
+     * Sets type
+     *
+     * @param string|null $type type
+     *
+     * @return $this
+     */
+    public function setType($type)
+    {
+        $this->container['type'] = $type;
 
         return $this;
     }

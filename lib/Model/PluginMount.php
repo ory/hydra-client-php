@@ -1,6 +1,6 @@
 <?php
 /**
- * HealthNotReadyStatus
+ * PluginMount
  *
  * PHP version 5
  *
@@ -33,14 +33,15 @@ use \ArrayAccess;
 use \Ory\Hydra\Client\ObjectSerializer;
 
 /**
- * HealthNotReadyStatus Class Doc Comment
+ * PluginMount Class Doc Comment
  *
  * @category Class
+ * @description PluginMount PluginMount plugin mount
  * @package  Ory\Hydra\Client
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
-class HealthNotReadyStatus implements ModelInterface, ArrayAccess
+class PluginMount implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -49,7 +50,7 @@ class HealthNotReadyStatus implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $openAPIModelName = 'healthNotReadyStatus';
+    protected static $openAPIModelName = 'PluginMount';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -57,7 +58,13 @@ class HealthNotReadyStatus implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
-        'errors' => 'map[string,string]'
+        'description' => 'string',
+        'destination' => 'string',
+        'name' => 'string',
+        'options' => 'string[]',
+        'settable' => 'string[]',
+        'source' => 'string',
+        'type' => 'string'
     ];
 
     /**
@@ -66,7 +73,13 @@ class HealthNotReadyStatus implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPIFormats = [
-        'errors' => null
+        'description' => null,
+        'destination' => null,
+        'name' => null,
+        'options' => null,
+        'settable' => null,
+        'source' => null,
+        'type' => null
     ];
 
     /**
@@ -96,7 +109,13 @@ class HealthNotReadyStatus implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'errors' => 'errors'
+        'description' => 'Description',
+        'destination' => 'Destination',
+        'name' => 'Name',
+        'options' => 'Options',
+        'settable' => 'Settable',
+        'source' => 'Source',
+        'type' => 'Type'
     ];
 
     /**
@@ -105,7 +124,13 @@ class HealthNotReadyStatus implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'errors' => 'setErrors'
+        'description' => 'setDescription',
+        'destination' => 'setDestination',
+        'name' => 'setName',
+        'options' => 'setOptions',
+        'settable' => 'setSettable',
+        'source' => 'setSource',
+        'type' => 'setType'
     ];
 
     /**
@@ -114,7 +139,13 @@ class HealthNotReadyStatus implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'errors' => 'getErrors'
+        'description' => 'getDescription',
+        'destination' => 'getDestination',
+        'name' => 'getName',
+        'options' => 'getOptions',
+        'settable' => 'getSettable',
+        'source' => 'getSource',
+        'type' => 'getType'
     ];
 
     /**
@@ -177,7 +208,13 @@ class HealthNotReadyStatus implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['errors'] = isset($data['errors']) ? $data['errors'] : null;
+        $this->container['description'] = isset($data['description']) ? $data['description'] : null;
+        $this->container['destination'] = isset($data['destination']) ? $data['destination'] : null;
+        $this->container['name'] = isset($data['name']) ? $data['name'] : null;
+        $this->container['options'] = isset($data['options']) ? $data['options'] : null;
+        $this->container['settable'] = isset($data['settable']) ? $data['settable'] : null;
+        $this->container['source'] = isset($data['source']) ? $data['source'] : null;
+        $this->container['type'] = isset($data['type']) ? $data['type'] : null;
     }
 
     /**
@@ -189,6 +226,27 @@ class HealthNotReadyStatus implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
+        if ($this->container['description'] === null) {
+            $invalidProperties[] = "'description' can't be null";
+        }
+        if ($this->container['destination'] === null) {
+            $invalidProperties[] = "'destination' can't be null";
+        }
+        if ($this->container['name'] === null) {
+            $invalidProperties[] = "'name' can't be null";
+        }
+        if ($this->container['options'] === null) {
+            $invalidProperties[] = "'options' can't be null";
+        }
+        if ($this->container['settable'] === null) {
+            $invalidProperties[] = "'settable' can't be null";
+        }
+        if ($this->container['source'] === null) {
+            $invalidProperties[] = "'source' can't be null";
+        }
+        if ($this->container['type'] === null) {
+            $invalidProperties[] = "'type' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -205,25 +263,169 @@ class HealthNotReadyStatus implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets errors
+     * Gets description
      *
-     * @return map[string,string]|null
+     * @return string
      */
-    public function getErrors()
+    public function getDescription()
     {
-        return $this->container['errors'];
+        return $this->container['description'];
     }
 
     /**
-     * Sets errors
+     * Sets description
      *
-     * @param map[string,string]|null $errors Errors contains a list of errors that caused the not ready status.
+     * @param string $description description
      *
      * @return $this
      */
-    public function setErrors($errors)
+    public function setDescription($description)
     {
-        $this->container['errors'] = $errors;
+        $this->container['description'] = $description;
+
+        return $this;
+    }
+
+    /**
+     * Gets destination
+     *
+     * @return string
+     */
+    public function getDestination()
+    {
+        return $this->container['destination'];
+    }
+
+    /**
+     * Sets destination
+     *
+     * @param string $destination destination
+     *
+     * @return $this
+     */
+    public function setDestination($destination)
+    {
+        $this->container['destination'] = $destination;
+
+        return $this;
+    }
+
+    /**
+     * Gets name
+     *
+     * @return string
+     */
+    public function getName()
+    {
+        return $this->container['name'];
+    }
+
+    /**
+     * Sets name
+     *
+     * @param string $name name
+     *
+     * @return $this
+     */
+    public function setName($name)
+    {
+        $this->container['name'] = $name;
+
+        return $this;
+    }
+
+    /**
+     * Gets options
+     *
+     * @return string[]
+     */
+    public function getOptions()
+    {
+        return $this->container['options'];
+    }
+
+    /**
+     * Sets options
+     *
+     * @param string[] $options options
+     *
+     * @return $this
+     */
+    public function setOptions($options)
+    {
+        $this->container['options'] = $options;
+
+        return $this;
+    }
+
+    /**
+     * Gets settable
+     *
+     * @return string[]
+     */
+    public function getSettable()
+    {
+        return $this->container['settable'];
+    }
+
+    /**
+     * Sets settable
+     *
+     * @param string[] $settable settable
+     *
+     * @return $this
+     */
+    public function setSettable($settable)
+    {
+        $this->container['settable'] = $settable;
+
+        return $this;
+    }
+
+    /**
+     * Gets source
+     *
+     * @return string
+     */
+    public function getSource()
+    {
+        return $this->container['source'];
+    }
+
+    /**
+     * Sets source
+     *
+     * @param string $source source
+     *
+     * @return $this
+     */
+    public function setSource($source)
+    {
+        $this->container['source'] = $source;
+
+        return $this;
+    }
+
+    /**
+     * Gets type
+     *
+     * @return string
+     */
+    public function getType()
+    {
+        return $this->container['type'];
+    }
+
+    /**
+     * Sets type
+     *
+     * @param string $type type
+     *
+     * @return $this
+     */
+    public function setType($type)
+    {
+        $this->container['type'] = $type;
 
         return $this;
     }

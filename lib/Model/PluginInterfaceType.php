@@ -1,6 +1,6 @@
 <?php
 /**
- * HealthNotReadyStatus
+ * PluginInterfaceType
  *
  * PHP version 5
  *
@@ -33,14 +33,15 @@ use \ArrayAccess;
 use \Ory\Hydra\Client\ObjectSerializer;
 
 /**
- * HealthNotReadyStatus Class Doc Comment
+ * PluginInterfaceType Class Doc Comment
  *
  * @category Class
+ * @description PluginInterfaceType PluginInterfaceType plugin interface type
  * @package  Ory\Hydra\Client
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
-class HealthNotReadyStatus implements ModelInterface, ArrayAccess
+class PluginInterfaceType implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -49,7 +50,7 @@ class HealthNotReadyStatus implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $openAPIModelName = 'healthNotReadyStatus';
+    protected static $openAPIModelName = 'PluginInterfaceType';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -57,7 +58,9 @@ class HealthNotReadyStatus implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
-        'errors' => 'map[string,string]'
+        'capability' => 'string',
+        'prefix' => 'string',
+        'version' => 'string'
     ];
 
     /**
@@ -66,7 +69,9 @@ class HealthNotReadyStatus implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPIFormats = [
-        'errors' => null
+        'capability' => null,
+        'prefix' => null,
+        'version' => null
     ];
 
     /**
@@ -96,7 +101,9 @@ class HealthNotReadyStatus implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'errors' => 'errors'
+        'capability' => 'Capability',
+        'prefix' => 'Prefix',
+        'version' => 'Version'
     ];
 
     /**
@@ -105,7 +112,9 @@ class HealthNotReadyStatus implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'errors' => 'setErrors'
+        'capability' => 'setCapability',
+        'prefix' => 'setPrefix',
+        'version' => 'setVersion'
     ];
 
     /**
@@ -114,7 +123,9 @@ class HealthNotReadyStatus implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'errors' => 'getErrors'
+        'capability' => 'getCapability',
+        'prefix' => 'getPrefix',
+        'version' => 'getVersion'
     ];
 
     /**
@@ -177,7 +188,9 @@ class HealthNotReadyStatus implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['errors'] = isset($data['errors']) ? $data['errors'] : null;
+        $this->container['capability'] = isset($data['capability']) ? $data['capability'] : null;
+        $this->container['prefix'] = isset($data['prefix']) ? $data['prefix'] : null;
+        $this->container['version'] = isset($data['version']) ? $data['version'] : null;
     }
 
     /**
@@ -189,6 +202,15 @@ class HealthNotReadyStatus implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
+        if ($this->container['capability'] === null) {
+            $invalidProperties[] = "'capability' can't be null";
+        }
+        if ($this->container['prefix'] === null) {
+            $invalidProperties[] = "'prefix' can't be null";
+        }
+        if ($this->container['version'] === null) {
+            $invalidProperties[] = "'version' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -205,25 +227,73 @@ class HealthNotReadyStatus implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets errors
+     * Gets capability
      *
-     * @return map[string,string]|null
+     * @return string
      */
-    public function getErrors()
+    public function getCapability()
     {
-        return $this->container['errors'];
+        return $this->container['capability'];
     }
 
     /**
-     * Sets errors
+     * Sets capability
      *
-     * @param map[string,string]|null $errors Errors contains a list of errors that caused the not ready status.
+     * @param string $capability capability
      *
      * @return $this
      */
-    public function setErrors($errors)
+    public function setCapability($capability)
     {
-        $this->container['errors'] = $errors;
+        $this->container['capability'] = $capability;
+
+        return $this;
+    }
+
+    /**
+     * Gets prefix
+     *
+     * @return string
+     */
+    public function getPrefix()
+    {
+        return $this->container['prefix'];
+    }
+
+    /**
+     * Sets prefix
+     *
+     * @param string $prefix prefix
+     *
+     * @return $this
+     */
+    public function setPrefix($prefix)
+    {
+        $this->container['prefix'] = $prefix;
+
+        return $this;
+    }
+
+    /**
+     * Gets version
+     *
+     * @return string
+     */
+    public function getVersion()
+    {
+        return $this->container['version'];
+    }
+
+    /**
+     * Sets version
+     *
+     * @param string $version version
+     *
+     * @return $this
+     */
+    public function setVersion($version)
+    {
+        $this->container['version'] = $version;
 
         return $this;
     }

@@ -1,6 +1,6 @@
 <?php
 /**
- * HealthNotReadyStatus
+ * PluginDevice
  *
  * PHP version 5
  *
@@ -33,14 +33,15 @@ use \ArrayAccess;
 use \Ory\Hydra\Client\ObjectSerializer;
 
 /**
- * HealthNotReadyStatus Class Doc Comment
+ * PluginDevice Class Doc Comment
  *
  * @category Class
+ * @description PluginDevice PluginDevice PluginDevice plugin device
  * @package  Ory\Hydra\Client
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
-class HealthNotReadyStatus implements ModelInterface, ArrayAccess
+class PluginDevice implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -49,7 +50,7 @@ class HealthNotReadyStatus implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $openAPIModelName = 'healthNotReadyStatus';
+    protected static $openAPIModelName = 'PluginDevice';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -57,7 +58,10 @@ class HealthNotReadyStatus implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
-        'errors' => 'map[string,string]'
+        'description' => 'string',
+        'name' => 'string',
+        'path' => 'string',
+        'settable' => 'string[]'
     ];
 
     /**
@@ -66,7 +70,10 @@ class HealthNotReadyStatus implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPIFormats = [
-        'errors' => null
+        'description' => null,
+        'name' => null,
+        'path' => null,
+        'settable' => null
     ];
 
     /**
@@ -96,7 +103,10 @@ class HealthNotReadyStatus implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'errors' => 'errors'
+        'description' => 'Description',
+        'name' => 'Name',
+        'path' => 'Path',
+        'settable' => 'Settable'
     ];
 
     /**
@@ -105,7 +115,10 @@ class HealthNotReadyStatus implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'errors' => 'setErrors'
+        'description' => 'setDescription',
+        'name' => 'setName',
+        'path' => 'setPath',
+        'settable' => 'setSettable'
     ];
 
     /**
@@ -114,7 +127,10 @@ class HealthNotReadyStatus implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'errors' => 'getErrors'
+        'description' => 'getDescription',
+        'name' => 'getName',
+        'path' => 'getPath',
+        'settable' => 'getSettable'
     ];
 
     /**
@@ -177,7 +193,10 @@ class HealthNotReadyStatus implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['errors'] = isset($data['errors']) ? $data['errors'] : null;
+        $this->container['description'] = isset($data['description']) ? $data['description'] : null;
+        $this->container['name'] = isset($data['name']) ? $data['name'] : null;
+        $this->container['path'] = isset($data['path']) ? $data['path'] : null;
+        $this->container['settable'] = isset($data['settable']) ? $data['settable'] : null;
     }
 
     /**
@@ -189,6 +208,18 @@ class HealthNotReadyStatus implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
+        if ($this->container['description'] === null) {
+            $invalidProperties[] = "'description' can't be null";
+        }
+        if ($this->container['name'] === null) {
+            $invalidProperties[] = "'name' can't be null";
+        }
+        if ($this->container['path'] === null) {
+            $invalidProperties[] = "'path' can't be null";
+        }
+        if ($this->container['settable'] === null) {
+            $invalidProperties[] = "'settable' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -205,25 +236,97 @@ class HealthNotReadyStatus implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets errors
+     * Gets description
      *
-     * @return map[string,string]|null
+     * @return string
      */
-    public function getErrors()
+    public function getDescription()
     {
-        return $this->container['errors'];
+        return $this->container['description'];
     }
 
     /**
-     * Sets errors
+     * Sets description
      *
-     * @param map[string,string]|null $errors Errors contains a list of errors that caused the not ready status.
+     * @param string $description description
      *
      * @return $this
      */
-    public function setErrors($errors)
+    public function setDescription($description)
     {
-        $this->container['errors'] = $errors;
+        $this->container['description'] = $description;
+
+        return $this;
+    }
+
+    /**
+     * Gets name
+     *
+     * @return string
+     */
+    public function getName()
+    {
+        return $this->container['name'];
+    }
+
+    /**
+     * Sets name
+     *
+     * @param string $name name
+     *
+     * @return $this
+     */
+    public function setName($name)
+    {
+        $this->container['name'] = $name;
+
+        return $this;
+    }
+
+    /**
+     * Gets path
+     *
+     * @return string
+     */
+    public function getPath()
+    {
+        return $this->container['path'];
+    }
+
+    /**
+     * Sets path
+     *
+     * @param string $path path
+     *
+     * @return $this
+     */
+    public function setPath($path)
+    {
+        $this->container['path'] = $path;
+
+        return $this;
+    }
+
+    /**
+     * Gets settable
+     *
+     * @return string[]
+     */
+    public function getSettable()
+    {
+        return $this->container['settable'];
+    }
+
+    /**
+     * Sets settable
+     *
+     * @param string[] $settable settable
+     *
+     * @return $this
+     */
+    public function setSettable($settable)
+    {
+        $this->container['settable'] = $settable;
 
         return $this;
     }

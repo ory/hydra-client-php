@@ -1,6 +1,6 @@
 <?php
 /**
- * HealthNotReadyStatus
+ * ContainerWaitOKBodyError
  *
  * PHP version 5
  *
@@ -33,14 +33,15 @@ use \ArrayAccess;
 use \Ory\Hydra\Client\ObjectSerializer;
 
 /**
- * HealthNotReadyStatus Class Doc Comment
+ * ContainerWaitOKBodyError Class Doc Comment
  *
  * @category Class
+ * @description ContainerWaitOKBodyError ContainerWaitOKBodyError container waiting error, if any
  * @package  Ory\Hydra\Client
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
-class HealthNotReadyStatus implements ModelInterface, ArrayAccess
+class ContainerWaitOKBodyError implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -49,7 +50,7 @@ class HealthNotReadyStatus implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $openAPIModelName = 'healthNotReadyStatus';
+    protected static $openAPIModelName = 'ContainerWaitOKBodyError';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -57,7 +58,7 @@ class HealthNotReadyStatus implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
-        'errors' => 'map[string,string]'
+        'message' => 'string'
     ];
 
     /**
@@ -66,7 +67,7 @@ class HealthNotReadyStatus implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPIFormats = [
-        'errors' => null
+        'message' => null
     ];
 
     /**
@@ -96,7 +97,7 @@ class HealthNotReadyStatus implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'errors' => 'errors'
+        'message' => 'Message'
     ];
 
     /**
@@ -105,7 +106,7 @@ class HealthNotReadyStatus implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'errors' => 'setErrors'
+        'message' => 'setMessage'
     ];
 
     /**
@@ -114,7 +115,7 @@ class HealthNotReadyStatus implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'errors' => 'getErrors'
+        'message' => 'getMessage'
     ];
 
     /**
@@ -177,7 +178,7 @@ class HealthNotReadyStatus implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['errors'] = isset($data['errors']) ? $data['errors'] : null;
+        $this->container['message'] = isset($data['message']) ? $data['message'] : null;
     }
 
     /**
@@ -205,25 +206,25 @@ class HealthNotReadyStatus implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets errors
+     * Gets message
      *
-     * @return map[string,string]|null
+     * @return string|null
      */
-    public function getErrors()
+    public function getMessage()
     {
-        return $this->container['errors'];
+        return $this->container['message'];
     }
 
     /**
-     * Sets errors
+     * Sets message
      *
-     * @param map[string,string]|null $errors Errors contains a list of errors that caused the not ready status.
+     * @param string|null $message Details of an error
      *
      * @return $this
      */
-    public function setErrors($errors)
+    public function setMessage($message)
     {
-        $this->container['errors'] = $errors;
+        $this->container['message'] = $message;
 
         return $this;
     }

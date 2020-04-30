@@ -1,6 +1,6 @@
 <?php
 /**
- * HealthNotReadyStatus
+ * VolumeUsageData
  *
  * PHP version 5
  *
@@ -33,14 +33,15 @@ use \ArrayAccess;
 use \Ory\Hydra\Client\ObjectSerializer;
 
 /**
- * HealthNotReadyStatus Class Doc Comment
+ * VolumeUsageData Class Doc Comment
  *
  * @category Class
+ * @description VolumeUsageData VolumeUsageData Usage details about the volume. This information is used by the &#x60;GET /system/df&#x60; endpoint, and omitted in other endpoints.
  * @package  Ory\Hydra\Client
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
-class HealthNotReadyStatus implements ModelInterface, ArrayAccess
+class VolumeUsageData implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -49,7 +50,7 @@ class HealthNotReadyStatus implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $openAPIModelName = 'healthNotReadyStatus';
+    protected static $openAPIModelName = 'VolumeUsageData';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -57,7 +58,8 @@ class HealthNotReadyStatus implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
-        'errors' => 'map[string,string]'
+        'refCount' => 'int',
+        'size' => 'int'
     ];
 
     /**
@@ -66,7 +68,8 @@ class HealthNotReadyStatus implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPIFormats = [
-        'errors' => null
+        'refCount' => 'int64',
+        'size' => 'int64'
     ];
 
     /**
@@ -96,7 +99,8 @@ class HealthNotReadyStatus implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'errors' => 'errors'
+        'refCount' => 'RefCount',
+        'size' => 'Size'
     ];
 
     /**
@@ -105,7 +109,8 @@ class HealthNotReadyStatus implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'errors' => 'setErrors'
+        'refCount' => 'setRefCount',
+        'size' => 'setSize'
     ];
 
     /**
@@ -114,7 +119,8 @@ class HealthNotReadyStatus implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'errors' => 'getErrors'
+        'refCount' => 'getRefCount',
+        'size' => 'getSize'
     ];
 
     /**
@@ -177,7 +183,8 @@ class HealthNotReadyStatus implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['errors'] = isset($data['errors']) ? $data['errors'] : null;
+        $this->container['refCount'] = isset($data['refCount']) ? $data['refCount'] : null;
+        $this->container['size'] = isset($data['size']) ? $data['size'] : null;
     }
 
     /**
@@ -189,6 +196,12 @@ class HealthNotReadyStatus implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
+        if ($this->container['refCount'] === null) {
+            $invalidProperties[] = "'refCount' can't be null";
+        }
+        if ($this->container['size'] === null) {
+            $invalidProperties[] = "'size' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -205,25 +218,49 @@ class HealthNotReadyStatus implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets errors
+     * Gets refCount
      *
-     * @return map[string,string]|null
+     * @return int
      */
-    public function getErrors()
+    public function getRefCount()
     {
-        return $this->container['errors'];
+        return $this->container['refCount'];
     }
 
     /**
-     * Sets errors
+     * Sets refCount
      *
-     * @param map[string,string]|null $errors Errors contains a list of errors that caused the not ready status.
+     * @param int $refCount The number of containers referencing this volume. This field is set to `-1` if the reference-count is not available.
      *
      * @return $this
      */
-    public function setErrors($errors)
+    public function setRefCount($refCount)
     {
-        $this->container['errors'] = $errors;
+        $this->container['refCount'] = $refCount;
+
+        return $this;
+    }
+
+    /**
+     * Gets size
+     *
+     * @return int
+     */
+    public function getSize()
+    {
+        return $this->container['size'];
+    }
+
+    /**
+     * Sets size
+     *
+     * @param int $size Amount of disk space used by the volume (in bytes). This information is only available for volumes created with the `\"local\"` volume driver. For volumes created with other volume drivers, this field is set to `-1` (\"not available\")
+     *
+     * @return $this
+     */
+    public function setSize($size)
+    {
+        $this->container['size'] = $size;
 
         return $this;
     }
