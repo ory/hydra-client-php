@@ -24,3 +24,5 @@
 
 # Ignore vendor directory
 vendor/
+ 
+README.md
