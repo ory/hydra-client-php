@@ -1,6 +1,6 @@
 <?php
 /**
- * PluginConfigUser
+ * RequestWasHandledResponse
  *
  * PHP version 7.2
  *
@@ -33,10 +33,9 @@ use \ArrayAccess;
 use \Ory\Hydra\Client\ObjectSerializer;
 
 /**
- * PluginConfigUser Class Doc Comment
+ * RequestWasHandledResponse Class Doc Comment
  *
  * @category Class
- * @description PluginConfigUser plugin config user
  * @package  Ory\Hydra\Client
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
@@ -44,7 +43,7 @@ use \Ory\Hydra\Client\ObjectSerializer;
  * @template TKey int|null
  * @template TValue mixed|null  
  */
-class PluginConfigUser implements ModelInterface, ArrayAccess, \JsonSerializable
+class RequestWasHandledResponse implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -53,7 +52,7 @@ class PluginConfigUser implements ModelInterface, ArrayAccess, \JsonSerializable
       *
       * @var string
       */
-    protected static $openAPIModelName = 'PluginConfigUser';
+    protected static $openAPIModelName = 'requestWasHandledResponse';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -61,8 +60,7 @@ class PluginConfigUser implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var string[]
       */
     protected static $openAPITypes = [
-        'gID' => 'int',
-        'uID' => 'int'
+        'redirectTo' => 'string'
     ];
 
     /**
@@ -73,8 +71,7 @@ class PluginConfigUser implements ModelInterface, ArrayAccess, \JsonSerializable
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'gID' => 'uint32',
-        'uID' => 'uint32'
+        'redirectTo' => null
     ];
 
     /**
@@ -104,8 +101,7 @@ class PluginConfigUser implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $attributeMap = [
-        'gID' => 'GID',
-        'uID' => 'UID'
+        'redirectTo' => 'redirect_to'
     ];
 
     /**
@@ -114,8 +110,7 @@ class PluginConfigUser implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $setters = [
-        'gID' => 'setGID',
-        'uID' => 'setUID'
+        'redirectTo' => 'setRedirectTo'
     ];
 
     /**
@@ -124,8 +119,7 @@ class PluginConfigUser implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $getters = [
-        'gID' => 'getGID',
-        'uID' => 'getUID'
+        'redirectTo' => 'getRedirectTo'
     ];
 
     /**
@@ -188,8 +182,7 @@ class PluginConfigUser implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function __construct(array $data = null)
     {
-        $this->container['gID'] = $data['gID'] ?? null;
-        $this->container['uID'] = $data['uID'] ?? null;
+        $this->container['redirectTo'] = $data['redirectTo'] ?? null;
     }
 
     /**
@@ -201,6 +194,9 @@ class PluginConfigUser implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         $invalidProperties = [];
 
+        if ($this->container['redirectTo'] === null) {
+            $invalidProperties[] = "'redirectTo' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -217,49 +213,25 @@ class PluginConfigUser implements ModelInterface, ArrayAccess, \JsonSerializable
 
 
     /**
-     * Gets gID
+     * Gets redirectTo
      *
-     * @return int|null
+     * @return string
      */
-    public function getGID()
+    public function getRedirectTo()
     {
-        return $this->container['gID'];
+        return $this->container['redirectTo'];
     }
 
     /**
-     * Sets gID
+     * Sets redirectTo
      *
-     * @param int|null $gID g ID
+     * @param string $redirectTo Original request URL to which you should redirect the user if request was already handled.
      *
      * @return self
      */
-    public function setGID($gID)
+    public function setRedirectTo($redirectTo)
     {
-        $this->container['gID'] = $gID;
-
-        return $this;
-    }
-
-    /**
-     * Gets uID
-     *
-     * @return int|null
-     */
-    public function getUID()
-    {
-        return $this->container['uID'];
-    }
-
-    /**
-     * Sets uID
-     *
-     * @param int|null $uID UID
-     *
-     * @return self
-     */
-    public function setUID($uID)
-    {
-        $this->container['uID'] = $uID;
+        $this->container['redirectTo'] = $redirectTo;
 
         return $this;
     }

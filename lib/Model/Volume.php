@@ -1,6 +1,6 @@
 <?php
 /**
- * Oauth2TokenResponse
+ * Volume
  *
  * PHP version 7.2
  *
@@ -33,10 +33,10 @@ use \ArrayAccess;
 use \Ory\Hydra\Client\ObjectSerializer;
 
 /**
- * Oauth2TokenResponse Class Doc Comment
+ * Volume Class Doc Comment
  *
  * @category Class
- * @description The Access Token Response
+ * @description Volume volume
  * @package  Ory\Hydra\Client
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
@@ -44,7 +44,7 @@ use \Ory\Hydra\Client\ObjectSerializer;
  * @template TKey int|null
  * @template TValue mixed|null  
  */
-class Oauth2TokenResponse implements ModelInterface, ArrayAccess, \JsonSerializable
+class Volume implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -53,7 +53,7 @@ class Oauth2TokenResponse implements ModelInterface, ArrayAccess, \JsonSerializa
       *
       * @var string
       */
-    protected static $openAPIModelName = 'oauth2TokenResponse';
+    protected static $openAPIModelName = 'Volume';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -61,12 +61,15 @@ class Oauth2TokenResponse implements ModelInterface, ArrayAccess, \JsonSerializa
       * @var string[]
       */
     protected static $openAPITypes = [
-        'accessToken' => 'string',
-        'expiresIn' => 'int',
-        'idToken' => 'string',
-        'refreshToken' => 'string',
+        'createdAt' => 'string',
+        'driver' => 'string',
+        'labels' => 'array<string,string>',
+        'mountpoint' => 'string',
+        'name' => 'string',
+        'options' => 'array<string,string>',
         'scope' => 'string',
-        'tokenType' => 'string'
+        'status' => 'object',
+        'usageData' => '\Ory\Hydra\Client\Model\VolumeUsageData'
     ];
 
     /**
@@ -77,12 +80,15 @@ class Oauth2TokenResponse implements ModelInterface, ArrayAccess, \JsonSerializa
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'accessToken' => null,
-        'expiresIn' => 'int64',
-        'idToken' => null,
-        'refreshToken' => null,
+        'createdAt' => null,
+        'driver' => null,
+        'labels' => null,
+        'mountpoint' => null,
+        'name' => null,
+        'options' => null,
         'scope' => null,
-        'tokenType' => null
+        'status' => null,
+        'usageData' => null
     ];
 
     /**
@@ -112,12 +118,15 @@ class Oauth2TokenResponse implements ModelInterface, ArrayAccess, \JsonSerializa
      * @var string[]
      */
     protected static $attributeMap = [
-        'accessToken' => 'access_token',
-        'expiresIn' => 'expires_in',
-        'idToken' => 'id_token',
-        'refreshToken' => 'refresh_token',
-        'scope' => 'scope',
-        'tokenType' => 'token_type'
+        'createdAt' => 'CreatedAt',
+        'driver' => 'Driver',
+        'labels' => 'Labels',
+        'mountpoint' => 'Mountpoint',
+        'name' => 'Name',
+        'options' => 'Options',
+        'scope' => 'Scope',
+        'status' => 'Status',
+        'usageData' => 'UsageData'
     ];
 
     /**
@@ -126,12 +135,15 @@ class Oauth2TokenResponse implements ModelInterface, ArrayAccess, \JsonSerializa
      * @var string[]
      */
     protected static $setters = [
-        'accessToken' => 'setAccessToken',
-        'expiresIn' => 'setExpiresIn',
-        'idToken' => 'setIdToken',
-        'refreshToken' => 'setRefreshToken',
+        'createdAt' => 'setCreatedAt',
+        'driver' => 'setDriver',
+        'labels' => 'setLabels',
+        'mountpoint' => 'setMountpoint',
+        'name' => 'setName',
+        'options' => 'setOptions',
         'scope' => 'setScope',
-        'tokenType' => 'setTokenType'
+        'status' => 'setStatus',
+        'usageData' => 'setUsageData'
     ];
 
     /**
@@ -140,12 +152,15 @@ class Oauth2TokenResponse implements ModelInterface, ArrayAccess, \JsonSerializa
      * @var string[]
      */
     protected static $getters = [
-        'accessToken' => 'getAccessToken',
-        'expiresIn' => 'getExpiresIn',
-        'idToken' => 'getIdToken',
-        'refreshToken' => 'getRefreshToken',
+        'createdAt' => 'getCreatedAt',
+        'driver' => 'getDriver',
+        'labels' => 'getLabels',
+        'mountpoint' => 'getMountpoint',
+        'name' => 'getName',
+        'options' => 'getOptions',
         'scope' => 'getScope',
-        'tokenType' => 'getTokenType'
+        'status' => 'getStatus',
+        'usageData' => 'getUsageData'
     ];
 
     /**
@@ -208,12 +223,15 @@ class Oauth2TokenResponse implements ModelInterface, ArrayAccess, \JsonSerializa
      */
     public function __construct(array $data = null)
     {
-        $this->container['accessToken'] = $data['accessToken'] ?? null;
-        $this->container['expiresIn'] = $data['expiresIn'] ?? null;
-        $this->container['idToken'] = $data['idToken'] ?? null;
-        $this->container['refreshToken'] = $data['refreshToken'] ?? null;
+        $this->container['createdAt'] = $data['createdAt'] ?? null;
+        $this->container['driver'] = $data['driver'] ?? null;
+        $this->container['labels'] = $data['labels'] ?? null;
+        $this->container['mountpoint'] = $data['mountpoint'] ?? null;
+        $this->container['name'] = $data['name'] ?? null;
+        $this->container['options'] = $data['options'] ?? null;
         $this->container['scope'] = $data['scope'] ?? null;
-        $this->container['tokenType'] = $data['tokenType'] ?? null;
+        $this->container['status'] = $data['status'] ?? null;
+        $this->container['usageData'] = $data['usageData'] ?? null;
     }
 
     /**
@@ -225,6 +243,24 @@ class Oauth2TokenResponse implements ModelInterface, ArrayAccess, \JsonSerializa
     {
         $invalidProperties = [];
 
+        if ($this->container['driver'] === null) {
+            $invalidProperties[] = "'driver' can't be null";
+        }
+        if ($this->container['labels'] === null) {
+            $invalidProperties[] = "'labels' can't be null";
+        }
+        if ($this->container['mountpoint'] === null) {
+            $invalidProperties[] = "'mountpoint' can't be null";
+        }
+        if ($this->container['name'] === null) {
+            $invalidProperties[] = "'name' can't be null";
+        }
+        if ($this->container['options'] === null) {
+            $invalidProperties[] = "'options' can't be null";
+        }
+        if ($this->container['scope'] === null) {
+            $invalidProperties[] = "'scope' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -241,97 +277,145 @@ class Oauth2TokenResponse implements ModelInterface, ArrayAccess, \JsonSerializa
 
 
     /**
-     * Gets accessToken
+     * Gets createdAt
      *
      * @return string|null
      */
-    public function getAccessToken()
+    public function getCreatedAt()
     {
-        return $this->container['accessToken'];
+        return $this->container['createdAt'];
     }
 
     /**
-     * Sets accessToken
+     * Sets createdAt
      *
-     * @param string|null $accessToken accessToken
+     * @param string|null $createdAt Date/Time the volume was created.
      *
      * @return self
      */
-    public function setAccessToken($accessToken)
+    public function setCreatedAt($createdAt)
     {
-        $this->container['accessToken'] = $accessToken;
+        $this->container['createdAt'] = $createdAt;
 
         return $this;
     }
 
     /**
-     * Gets expiresIn
+     * Gets driver
      *
-     * @return int|null
+     * @return string
      */
-    public function getExpiresIn()
+    public function getDriver()
     {
-        return $this->container['expiresIn'];
+        return $this->container['driver'];
     }
 
     /**
-     * Sets expiresIn
+     * Sets driver
      *
-     * @param int|null $expiresIn expiresIn
+     * @param string $driver Name of the volume driver used by the volume.
      *
      * @return self
      */
-    public function setExpiresIn($expiresIn)
+    public function setDriver($driver)
     {
-        $this->container['expiresIn'] = $expiresIn;
+        $this->container['driver'] = $driver;
 
         return $this;
     }
 
     /**
-     * Gets idToken
+     * Gets labels
      *
-     * @return string|null
+     * @return array<string,string>
      */
-    public function getIdToken()
+    public function getLabels()
     {
-        return $this->container['idToken'];
+        return $this->container['labels'];
     }
 
     /**
-     * Sets idToken
+     * Sets labels
      *
-     * @param string|null $idToken idToken
+     * @param array<string,string> $labels User-defined key/value metadata.
      *
      * @return self
      */
-    public function setIdToken($idToken)
+    public function setLabels($labels)
     {
-        $this->container['idToken'] = $idToken;
+        $this->container['labels'] = $labels;
 
         return $this;
     }
 
     /**
-     * Gets refreshToken
+     * Gets mountpoint
      *
-     * @return string|null
+     * @return string
      */
-    public function getRefreshToken()
+    public function getMountpoint()
     {
-        return $this->container['refreshToken'];
+        return $this->container['mountpoint'];
     }
 
     /**
-     * Sets refreshToken
+     * Sets mountpoint
      *
-     * @param string|null $refreshToken refreshToken
+     * @param string $mountpoint Mount path of the volume on the host.
      *
      * @return self
      */
-    public function setRefreshToken($refreshToken)
+    public function setMountpoint($mountpoint)
     {
-        $this->container['refreshToken'] = $refreshToken;
+        $this->container['mountpoint'] = $mountpoint;
+
+        return $this;
+    }
+
+    /**
+     * Gets name
+     *
+     * @return string
+     */
+    public function getName()
+    {
+        return $this->container['name'];
+    }
+
+    /**
+     * Sets name
+     *
+     * @param string $name Name of the volume.
+     *
+     * @return self
+     */
+    public function setName($name)
+    {
+        $this->container['name'] = $name;
+
+        return $this;
+    }
+
+    /**
+     * Gets options
+     *
+     * @return array<string,string>
+     */
+    public function getOptions()
+    {
+        return $this->container['options'];
+    }
+
+    /**
+     * Sets options
+     *
+     * @param array<string,string> $options The driver specific options used when creating the volume.
+     *
+     * @return self
+     */
+    public function setOptions($options)
+    {
+        $this->container['options'] = $options;
 
         return $this;
     }
@@ -339,7 +423,7 @@ class Oauth2TokenResponse implements ModelInterface, ArrayAccess, \JsonSerializa
     /**
      * Gets scope
      *
-     * @return string|null
+     * @return string
      */
     public function getScope()
     {
@@ -349,7 +433,7 @@ class Oauth2TokenResponse implements ModelInterface, ArrayAccess, \JsonSerializa
     /**
      * Sets scope
      *
-     * @param string|null $scope scope
+     * @param string $scope The level at which the volume exists. Either `global` for cluster-wide, or `local` for machine level.
      *
      * @return self
      */
@@ -361,25 +445,49 @@ class Oauth2TokenResponse implements ModelInterface, ArrayAccess, \JsonSerializa
     }
 
     /**
-     * Gets tokenType
+     * Gets status
      *
-     * @return string|null
+     * @return object|null
      */
-    public function getTokenType()
+    public function getStatus()
     {
-        return $this->container['tokenType'];
+        return $this->container['status'];
     }
 
     /**
-     * Sets tokenType
+     * Sets status
      *
-     * @param string|null $tokenType tokenType
+     * @param object|null $status Low-level details about the volume, provided by the volume driver. Details are returned as a map with key/value pairs: `{\"key\":\"value\",\"key2\":\"value2\"}`.  The `Status` field is optional, and is omitted if the volume driver does not support this feature.
      *
      * @return self
      */
-    public function setTokenType($tokenType)
+    public function setStatus($status)
     {
-        $this->container['tokenType'] = $tokenType;
+        $this->container['status'] = $status;
+
+        return $this;
+    }
+
+    /**
+     * Gets usageData
+     *
+     * @return \Ory\Hydra\Client\Model\VolumeUsageData|null
+     */
+    public function getUsageData()
+    {
+        return $this->container['usageData'];
+    }
+
+    /**
+     * Sets usageData
+     *
+     * @param \Ory\Hydra\Client\Model\VolumeUsageData|null $usageData usageData
+     *
+     * @return self
+     */
+    public function setUsageData($usageData)
+    {
+        $this->container['usageData'] = $usageData;
 
         return $this;
     }

@@ -1,6 +1,6 @@
 <?php
 /**
- * PluginConfigUser
+ * PatchDocument
  *
  * PHP version 7.2
  *
@@ -33,10 +33,10 @@ use \ArrayAccess;
 use \Ory\Hydra\Client\ObjectSerializer;
 
 /**
- * PluginConfigUser Class Doc Comment
+ * PatchDocument Class Doc Comment
  *
  * @category Class
- * @description PluginConfigUser plugin config user
+ * @description A JSONPatch document as defined by RFC 6902
  * @package  Ory\Hydra\Client
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
@@ -44,7 +44,7 @@ use \Ory\Hydra\Client\ObjectSerializer;
  * @template TKey int|null
  * @template TValue mixed|null  
  */
-class PluginConfigUser implements ModelInterface, ArrayAccess, \JsonSerializable
+class PatchDocument implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -53,7 +53,7 @@ class PluginConfigUser implements ModelInterface, ArrayAccess, \JsonSerializable
       *
       * @var string
       */
-    protected static $openAPIModelName = 'PluginConfigUser';
+    protected static $openAPIModelName = 'patchDocument';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -61,8 +61,10 @@ class PluginConfigUser implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var string[]
       */
     protected static $openAPITypes = [
-        'gID' => 'int',
-        'uID' => 'int'
+        'from' => 'string',
+        'op' => 'string',
+        'path' => 'string',
+        'value' => 'object'
     ];
 
     /**
@@ -73,8 +75,10 @@ class PluginConfigUser implements ModelInterface, ArrayAccess, \JsonSerializable
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'gID' => 'uint32',
-        'uID' => 'uint32'
+        'from' => null,
+        'op' => null,
+        'path' => null,
+        'value' => null
     ];
 
     /**
@@ -104,8 +108,10 @@ class PluginConfigUser implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $attributeMap = [
-        'gID' => 'GID',
-        'uID' => 'UID'
+        'from' => 'from',
+        'op' => 'op',
+        'path' => 'path',
+        'value' => 'value'
     ];
 
     /**
@@ -114,8 +120,10 @@ class PluginConfigUser implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $setters = [
-        'gID' => 'setGID',
-        'uID' => 'setUID'
+        'from' => 'setFrom',
+        'op' => 'setOp',
+        'path' => 'setPath',
+        'value' => 'setValue'
     ];
 
     /**
@@ -124,8 +132,10 @@ class PluginConfigUser implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $getters = [
-        'gID' => 'getGID',
-        'uID' => 'getUID'
+        'from' => 'getFrom',
+        'op' => 'getOp',
+        'path' => 'getPath',
+        'value' => 'getValue'
     ];
 
     /**
@@ -188,8 +198,10 @@ class PluginConfigUser implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function __construct(array $data = null)
     {
-        $this->container['gID'] = $data['gID'] ?? null;
-        $this->container['uID'] = $data['uID'] ?? null;
+        $this->container['from'] = $data['from'] ?? null;
+        $this->container['op'] = $data['op'] ?? null;
+        $this->container['path'] = $data['path'] ?? null;
+        $this->container['value'] = $data['value'] ?? null;
     }
 
     /**
@@ -201,6 +213,12 @@ class PluginConfigUser implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         $invalidProperties = [];
 
+        if ($this->container['op'] === null) {
+            $invalidProperties[] = "'op' can't be null";
+        }
+        if ($this->container['path'] === null) {
+            $invalidProperties[] = "'path' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -217,49 +235,97 @@ class PluginConfigUser implements ModelInterface, ArrayAccess, \JsonSerializable
 
 
     /**
-     * Gets gID
+     * Gets from
      *
-     * @return int|null
+     * @return string|null
      */
-    public function getGID()
+    public function getFrom()
     {
-        return $this->container['gID'];
+        return $this->container['from'];
     }
 
     /**
-     * Sets gID
+     * Sets from
      *
-     * @param int|null $gID g ID
+     * @param string|null $from A JSON-pointer
      *
      * @return self
      */
-    public function setGID($gID)
+    public function setFrom($from)
     {
-        $this->container['gID'] = $gID;
+        $this->container['from'] = $from;
 
         return $this;
     }
 
     /**
-     * Gets uID
+     * Gets op
      *
-     * @return int|null
+     * @return string
      */
-    public function getUID()
+    public function getOp()
     {
-        return $this->container['uID'];
+        return $this->container['op'];
     }
 
     /**
-     * Sets uID
+     * Sets op
      *
-     * @param int|null $uID UID
+     * @param string $op The operation to be performed
      *
      * @return self
      */
-    public function setUID($uID)
+    public function setOp($op)
     {
-        $this->container['uID'] = $uID;
+        $this->container['op'] = $op;
+
+        return $this;
+    }
+
+    /**
+     * Gets path
+     *
+     * @return string
+     */
+    public function getPath()
+    {
+        return $this->container['path'];
+    }
+
+    /**
+     * Sets path
+     *
+     * @param string $path A JSON-pointer
+     *
+     * @return self
+     */
+    public function setPath($path)
+    {
+        $this->container['path'] = $path;
+
+        return $this;
+    }
+
+    /**
+     * Gets value
+     *
+     * @return object|null
+     */
+    public function getValue()
+    {
+        return $this->container['value'];
+    }
+
+    /**
+     * Sets value
+     *
+     * @param object|null $value The value to be used within the operations
+     *
+     * @return self
+     */
+    public function setValue($value)
+    {
+        $this->container['value'] = $value;
 
         return $this;
     }
