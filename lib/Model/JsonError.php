@@ -1,6 +1,6 @@
 <?php
 /**
- * PluginConfigInterface
+ * JsonError
  *
  * PHP version 7.2
  *
@@ -32,10 +32,10 @@ use \ArrayAccess;
 use \Ory\Hydra\Client\ObjectSerializer;
 
 /**
- * PluginConfigInterface Class Doc Comment
+ * JsonError Class Doc Comment
  *
  * @category Class
- * @description PluginConfigInterface The interface between Docker and the plugin
+ * @description Error responses are sent when an error (e.g. unauthorized, bad request, ...) occurred.
  * @package  Ory\Hydra\Client
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
@@ -43,7 +43,7 @@ use \Ory\Hydra\Client\ObjectSerializer;
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class PluginConfigInterface implements ModelInterface, ArrayAccess, \JsonSerializable
+class JsonError implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -52,7 +52,7 @@ class PluginConfigInterface implements ModelInterface, ArrayAccess, \JsonSeriali
       *
       * @var string
       */
-    protected static $openAPIModelName = 'PluginConfigInterface';
+    protected static $openAPIModelName = 'jsonError';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -60,9 +60,10 @@ class PluginConfigInterface implements ModelInterface, ArrayAccess, \JsonSeriali
       * @var string[]
       */
     protected static $openAPITypes = [
-        'protocolScheme' => 'string',
-        'socket' => 'string',
-        'types' => '\Ory\Hydra\Client\Model\PluginInterfaceType[]'
+        'error' => 'string',
+        'errorDebug' => 'string',
+        'errorDescription' => 'string',
+        'statusCode' => 'int'
     ];
 
     /**
@@ -73,9 +74,10 @@ class PluginConfigInterface implements ModelInterface, ArrayAccess, \JsonSeriali
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'protocolScheme' => null,
-        'socket' => null,
-        'types' => null
+        'error' => null,
+        'errorDebug' => null,
+        'errorDescription' => null,
+        'statusCode' => 'int64'
     ];
 
     /**
@@ -105,9 +107,10 @@ class PluginConfigInterface implements ModelInterface, ArrayAccess, \JsonSeriali
      * @var string[]
      */
     protected static $attributeMap = [
-        'protocolScheme' => 'ProtocolScheme',
-        'socket' => 'Socket',
-        'types' => 'Types'
+        'error' => 'error',
+        'errorDebug' => 'error_debug',
+        'errorDescription' => 'error_description',
+        'statusCode' => 'status_code'
     ];
 
     /**
@@ -116,9 +119,10 @@ class PluginConfigInterface implements ModelInterface, ArrayAccess, \JsonSeriali
      * @var string[]
      */
     protected static $setters = [
-        'protocolScheme' => 'setProtocolScheme',
-        'socket' => 'setSocket',
-        'types' => 'setTypes'
+        'error' => 'setError',
+        'errorDebug' => 'setErrorDebug',
+        'errorDescription' => 'setErrorDescription',
+        'statusCode' => 'setStatusCode'
     ];
 
     /**
@@ -127,9 +131,10 @@ class PluginConfigInterface implements ModelInterface, ArrayAccess, \JsonSeriali
      * @var string[]
      */
     protected static $getters = [
-        'protocolScheme' => 'getProtocolScheme',
-        'socket' => 'getSocket',
-        'types' => 'getTypes'
+        'error' => 'getError',
+        'errorDebug' => 'getErrorDebug',
+        'errorDescription' => 'getErrorDescription',
+        'statusCode' => 'getStatusCode'
     ];
 
     /**
@@ -189,9 +194,10 @@ class PluginConfigInterface implements ModelInterface, ArrayAccess, \JsonSeriali
      */
     public function __construct(array $data = null)
     {
-        $this->container['protocolScheme'] = $data['protocolScheme'] ?? null;
-        $this->container['socket'] = $data['socket'] ?? null;
-        $this->container['types'] = $data['types'] ?? null;
+        $this->container['error'] = $data['error'] ?? null;
+        $this->container['errorDebug'] = $data['errorDebug'] ?? null;
+        $this->container['errorDescription'] = $data['errorDescription'] ?? null;
+        $this->container['statusCode'] = $data['statusCode'] ?? null;
     }
 
     /**
@@ -203,12 +209,6 @@ class PluginConfigInterface implements ModelInterface, ArrayAccess, \JsonSeriali
     {
         $invalidProperties = [];
 
-        if ($this->container['socket'] === null) {
-            $invalidProperties[] = "'socket' can't be null";
-        }
-        if ($this->container['types'] === null) {
-            $invalidProperties[] = "'types' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -225,73 +225,97 @@ class PluginConfigInterface implements ModelInterface, ArrayAccess, \JsonSeriali
 
 
     /**
-     * Gets protocolScheme
+     * Gets error
      *
      * @return string|null
      */
-    public function getProtocolScheme()
+    public function getError()
     {
-        return $this->container['protocolScheme'];
+        return $this->container['error'];
     }
 
     /**
-     * Sets protocolScheme
+     * Sets error
      *
-     * @param string|null $protocolScheme Protocol to use for clients connecting to the plugin.
+     * @param string|null $error Name is the error name.
      *
      * @return self
      */
-    public function setProtocolScheme($protocolScheme)
+    public function setError($error)
     {
-        $this->container['protocolScheme'] = $protocolScheme;
+        $this->container['error'] = $error;
 
         return $this;
     }
 
     /**
-     * Gets socket
+     * Gets errorDebug
      *
-     * @return string
+     * @return string|null
      */
-    public function getSocket()
+    public function getErrorDebug()
     {
-        return $this->container['socket'];
+        return $this->container['errorDebug'];
     }
 
     /**
-     * Sets socket
+     * Sets errorDebug
      *
-     * @param string $socket socket
+     * @param string|null $errorDebug Debug contains debug information. This is usually not available and has to be enabled.
      *
      * @return self
      */
-    public function setSocket($socket)
+    public function setErrorDebug($errorDebug)
     {
-        $this->container['socket'] = $socket;
+        $this->container['errorDebug'] = $errorDebug;
 
         return $this;
     }
 
     /**
-     * Gets types
+     * Gets errorDescription
      *
-     * @return \Ory\Hydra\Client\Model\PluginInterfaceType[]
+     * @return string|null
      */
-    public function getTypes()
+    public function getErrorDescription()
     {
-        return $this->container['types'];
+        return $this->container['errorDescription'];
     }
 
     /**
-     * Sets types
+     * Sets errorDescription
      *
-     * @param \Ory\Hydra\Client\Model\PluginInterfaceType[] $types types
+     * @param string|null $errorDescription Description contains further information on the nature of the error.
      *
      * @return self
      */
-    public function setTypes($types)
+    public function setErrorDescription($errorDescription)
     {
-        $this->container['types'] = $types;
+        $this->container['errorDescription'] = $errorDescription;
+
+        return $this;
+    }
+
+    /**
+     * Gets statusCode
+     *
+     * @return int|null
+     */
+    public function getStatusCode()
+    {
+        return $this->container['statusCode'];
+    }
+
+    /**
+     * Sets statusCode
+     *
+     * @param int|null $statusCode Code represents the error status code (404, 403, 401, ...).
+     *
+     * @return self
+     */
+    public function setStatusCode($statusCode)
+    {
+        $this->container['statusCode'] = $statusCode;
 
         return $this;
     }

@@ -4,6 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**protocolScheme** | **string** | Protocol to use for clients connecting to the plugin. | [optional]
 **socket** | **string** | socket |
 **types** | [**\Ory\Hydra\Client\Model\PluginInterfaceType[]**](PluginInterfaceType.md) | types |
 
