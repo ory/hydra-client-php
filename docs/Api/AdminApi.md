@@ -1104,7 +1104,7 @@ No authorization required
 ## `listOAuth2Clients()`
 
 ```php
-listOAuth2Clients($limit, $offset): \Ory\Hydra\Client\Model\OAuth2Client[]
+listOAuth2Clients($limit, $offset, $name, $owner): \Ory\Hydra\Client\Model\OAuth2Client[]
 ```
 
 List OAuth 2.0 Clients
@@ -1124,11 +1124,13 @@ $apiInstance = new Ory\Hydra\Client\Api\AdminApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$limit = 56; // int | The maximum amount of policies returned, upper bound is 500 policies
+$limit = 56; // int | The maximum amount of clients to returned, upper bound is 500 clients.
 $offset = 56; // int | The offset from where to start looking.
+$name = 'name_example'; // string | The name of the clients to filter by.
+$owner = 'owner_example'; // string | The owner of the clients to filter by.
 
 try {
-    $result = $apiInstance->listOAuth2Clients($limit, $offset);
+    $result = $apiInstance->listOAuth2Clients($limit, $offset, $name, $owner);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling AdminApi->listOAuth2Clients: ', $e->getMessage(), PHP_EOL;
@@ -1139,8 +1141,10 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **limit** | **int**| The maximum amount of policies returned, upper bound is 500 policies | [optional]
+ **limit** | **int**| The maximum amount of clients to returned, upper bound is 500 clients. | [optional]
  **offset** | **int**| The offset from where to start looking. | [optional]
+ **name** | **string**| The name of the clients to filter by. | [optional]
+ **owner** | **string**| The owner of the clients to filter by. | [optional]
 
 ### Return type
 
