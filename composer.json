@@ -1,5 +1,5 @@
 {
-  "name": "ory/hydra-client",
+  "name": "ory/hydra-client-php",
   "description": "Documentation for all of Ory Hydra's APIs.",
   "keywords": [
     "openapitools",
