@@ -1,9 +1,9 @@
-# # InlineResponse503
+# # GetVersion200Response
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**errors** | **array<string,string>** | Errors contains a list of errors that caused the not ready status. | [optional]
+**version** | **string** | The version of Ory Hydra. | [optional]
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

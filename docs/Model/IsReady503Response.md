@@ -1,9 +1,9 @@
-# # InlineResponse200
+# # IsReady503Response
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**status** | **string** | Always \&quot;ok\&quot;. | [optional]
+**errors** | **array<string,string>** | Errors contains a list of errors that caused the not ready status. | [optional]
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)
