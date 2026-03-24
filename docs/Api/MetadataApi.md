@@ -1,5 +1,7 @@
 # Ory\Hydra\Client\MetadataApi
 
+Service Metadata
+
 All URIs are relative to http://localhost, except if the operation defines another base path.
 
 | Method | HTTP request | Description |
